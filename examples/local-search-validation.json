@@ -1,0 +1,42 @@
+{
+  "local_query": "cache expiry validation",
+  "full_corpus_tokens": 17269,
+  "full_json_search_output_tokens": 970,
+  "context_size_reduction_pct": 94.38299843650472,
+  "measurement_scope": "o200k_base counts, comparison against sending whole corpus; not actual Codex billing savings",
+  "local_search": {
+    "corpus_documents": 10,
+    "corpus_characters": 62806,
+    "returned_text_characters": 2400,
+    "model_calls": 0,
+    "embedding_calls": 0,
+    "metrics": {
+      "cpu_ms": 7.6505980000000084,
+      "wall_ms": 7.649809998838464,
+      "successful_download_body_bytes": 0,
+      "download_scope": "successful document response bodies only; failures may transfer additional bytes"
+    }
+  },
+  "result_sources": [
+    "core.py",
+    "core.py",
+    "web.py",
+    "__main__.py"
+  ],
+  "public_document_test": {
+    "url": "https://docs.python.org/3/library/argparse.html",
+    "first": [],
+    "second": [],
+    "errors": [
+      {
+        "url": "https://docs.python.org/3/library/argparse.html",
+        "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      },
+      {
+        "url": "https://docs.python.org/3/library/argparse.html",
+        "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      }
+    ],
+    "result_count": 0
+  }
+}

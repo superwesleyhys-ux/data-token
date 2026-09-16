@@ -1,0 +1,37 @@
+test_benchmark_verifies_correctness_and_reports_priming (test_harness.DashboardAndBenchmarkTests.test_benchmark_verifies_correctness_and_reports_priming) ... ok
+test_dashboard_route_and_origin_validation (test_harness.DashboardAndBenchmarkTests.test_dashboard_route_and_origin_validation) ... ok
+test_baseline_does_not_fill_cache (test_harness.HarnessTests.test_baseline_does_not_fill_cache) ... ok
+test_cold_warm_and_baseline_match (test_harness.HarnessTests.test_cold_warm_and_baseline_match) ... ok
+test_corrupt_cache_is_a_miss (test_harness.HarnessTests.test_corrupt_cache_is_a_miss) ... ok
+test_edit_number_recomputes_only_changed_chunk_and_root (test_harness.HarnessTests.test_edit_number_recomputes_only_changed_chunk_and_root) ... ok
+test_expired_artifacts_recompute (test_harness.HarnessTests.test_expired_artifacts_recompute) ... ok
+test_input_limits (test_harness.HarnessTests.test_input_limits) ... ok
+test_negation_changes_do_not_reuse_answer (test_harness.HarnessTests.test_negation_changes_do_not_reuse_answer) ... ok
+test_order_change_reuses_chunks_not_root (test_harness.HarnessTests.test_order_change_reuses_chunks_not_root) ... ok
+test_persistent_cache_and_capacity (test_harness.HarnessTests.test_persistent_cache_and_capacity) ... ok
+test_rebound_payload_is_rejected (test_harness.HarnessTests.test_rebound_payload_is_rejected) ... ok
+test_tightening_ttl_does_not_accept_older_entries (test_harness.HarnessTests.test_tightening_ttl_does_not_accept_older_entries) ... ok
+test_workspace_version_acl_and_parameters_separate_cache (test_harness.HarnessTests.test_workspace_version_acl_and_parameters_separate_cache) ... ok
+test_budget_zero_disables_network_and_small_budget_rejects (test_harness.PeerTests.test_budget_zero_disables_network_and_small_budget_rejects) ... ok
+test_download_does_not_refresh_expiry (test_harness.PeerTests.test_download_does_not_refresh_expiry) ... ok
+test_failed_signature_falls_back (test_harness.PeerTests.test_failed_signature_falls_back) ... ok
+test_http_transfer_and_second_local_hit (test_harness.PeerTests.test_http_transfer_and_second_local_hit) ... ok
+test_non_loopback_http_rejected (test_harness.PeerTests.test_non_loopback_http_rejected) ... ok
+test_remote_workspace_isolation (test_harness.PeerTests.test_remote_workspace_isolation) ... ok
+test_unreachable_peer_falls_back (test_harness.PeerTests.test_unreachable_peer_falls_back) ... ok
+test_wrong_token_falls_back (test_harness.PeerTests.test_wrong_token_falls_back) ... ok
+test_actual_http_fetch_then_offline_cache (test_search.LocalSearchTests.test_actual_http_fetch_then_offline_cache) ... ok
+test_chinese_search_and_late_match (test_search.LocalSearchTests.test_chinese_search_and_late_match) ... ok
+test_failed_fetch_keeps_local_results (test_search.LocalSearchTests.test_failed_fetch_keeps_local_results) ... ok
+test_file_url_is_not_read (test_search.LocalSearchTests.test_file_url_is_not_read) ... ok
+test_files_are_fresh_and_local_search_never_fetches (test_search.LocalSearchTests.test_files_are_fresh_and_local_search_never_fetches) ... ok
+test_lexical_ranking_and_budget (test_search.LocalSearchTests.test_lexical_ranking_and_budget) ... ok
+test_malformed_cached_text_becomes_a_miss (test_search.LocalSearchTests.test_malformed_cached_text_becomes_a_miss) ... ok
+test_malformed_http_keeps_local_results (test_search.LocalSearchTests.test_malformed_http_keeps_local_results) ... ok
+test_query_and_limits_are_validated (test_search.LocalSearchTests.test_query_and_limits_are_validated) ... ok
+test_unknown_charset_keeps_local_results (test_search.LocalSearchTests.test_unknown_charset_keeps_local_results) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.268s
+
+OK

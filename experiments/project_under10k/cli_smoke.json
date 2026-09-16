@@ -1,0 +1,7 @@
+{
+  "command": "python -m flowcache run --input experiments/project_under10k/input.txt --cache <temporary SQLite>",
+  "first_computed_nodes": 7,
+  "second_computed_nodes": 0,
+  "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+  "passed": true
+}

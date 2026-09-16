@@ -1,0 +1,43 @@
+{
+  "tokenizer": "o200k_base",
+  "tiktoken_version": "0.14.0",
+  "input_tokens": 9640,
+  "edited_tokens": 9655,
+  "input_bytes": 41156,
+  "input_sha256": "6c0e43fba5860a4d08063b4a7289333f2e950f311c0cdd2064c2edfcd401d8e7",
+  "files": [
+    {
+      "path": "__init__.py",
+      "bytes": 97,
+      "sha256": "b5fe827098c681f2c2c417832d272ae80f609c2178200c1cc31dcc10908a0c5e"
+    },
+    {
+      "path": "__main__.py",
+      "bytes": 4388,
+      "sha256": "2399d869d250f6b42155e90910b9fb9c4b8ce55f2c8792d93fb4dc1e1fe72373"
+    },
+    {
+      "path": "core.py",
+      "bytes": 13936,
+      "sha256": "a9b799f12ef481d8e094de8a681a30c44effc218ba4181fdc844841f7e67a973"
+    },
+    {
+      "path": "demo.py",
+      "bytes": 7327,
+      "sha256": "12b91d2a5739a9907acd6d267f3d4146c5498ed48035a5f34cd0c707d9c010c4"
+    },
+    {
+      "path": "peer.py",
+      "bytes": 6904,
+      "sha256": "bf838fef2b1a7b2cd1da1834a591e0bf258d8786c5d17cd5b8aa6fef37bbb86f"
+    },
+    {
+      "path": "web.py",
+      "bytes": 6619,
+      "sha256": "308247e4c27cab70c5b1682ba449948eeba842bd53f26ae98df990c81172e47d"
+    }
+  ],
+  "scope": "six backend Python files, JSON file wrappers included; excludes frontend, tests and README",
+  "local_device": "offline; no user-device WiFi accessed",
+  "network": "real HTTP on execution-environment loopback"
+}

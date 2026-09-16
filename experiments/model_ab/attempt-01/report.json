@@ -1,0 +1,14 @@
+{
+  "status": "blocked",
+  "manifest": "manifest.json",
+  "requested_model": null,
+  "order": "AB",
+  "max_output_tokens": 1500,
+  "effort": null,
+  "records": {},
+  "comparison": null,
+  "blockers": [
+    "OPENAI_API_KEY is not configured; no model request was sent",
+    "Select the same model for both arms with --model"
+  ]
+}

@@ -1,0 +1,1826 @@
+{
+  "schema_version": 1,
+  "workload": "character-5gram-minhash",
+  "network": "real HTTP over loopback; not a WiFi benchmark",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "repetitions": 7,
+  "permutations": 128,
+  "metrics_scope": "process CPU includes client and cohosted peer during each request; bytes are downloaded HTTP response bodies, excluding headers/TLS/TCP",
+  "peer_priming": {
+    "local_hits": 0,
+    "peer_hits": 0,
+    "computed_nodes": 7,
+    "compute_cpu_ms": 38.593653999999994,
+    "client_cpu_ms": 40.83885000000001,
+    "wall_ms": 40.841055000782944,
+    "download_body_bytes": 0,
+    "peer_requests": 0,
+    "peer_errors": 0,
+    "peer_rejected": 0,
+    "events": [
+      {
+        "node": "chunk:1",
+        "source": "compute",
+        "key": "c92e302eb2e2",
+        "cpu_ms": 6.821
+      },
+      {
+        "node": "chunk:2",
+        "source": "compute",
+        "key": "7a966e018d48",
+        "cpu_ms": 6.286
+      },
+      {
+        "node": "chunk:3",
+        "source": "compute",
+        "key": "65f217188956",
+        "cpu_ms": 5.929
+      },
+      {
+        "node": "chunk:4",
+        "source": "compute",
+        "key": "c53612f3bc02",
+        "cpu_ms": 6.234
+      },
+      {
+        "node": "chunk:5",
+        "source": "compute",
+        "key": "c6d6a7fbd2c1",
+        "cpu_ms": 7.354
+      },
+      {
+        "node": "chunk:6",
+        "source": "compute",
+        "key": "54549d8e6fc8",
+        "cpu_ms": 5.961
+      },
+      {
+        "node": "document",
+        "source": "compute",
+        "key": "aaf4a837f2bb",
+        "cpu_ms": 0.009
+      }
+    ],
+    "cohost_process_cpu_ms": 41.001361
+  },
+  "summary": {
+    "baseline": {
+      "cohost_process_cpu_ms": 38.44329999999996,
+      "client_cpu_ms": 38.2378149999999,
+      "compute_cpu_ms": 37.84964000000002,
+      "wall_ms": 38.27028799787513,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "cpu_reduction_vs_baseline_pct": 0.0
+    },
+    "cold_local": {
+      "cohost_process_cpu_ms": 40.11508599999991,
+      "client_cpu_ms": 39.87222700000004,
+      "compute_cpu_ms": 37.961434000000295,
+      "wall_ms": 39.89910000018426,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "cpu_reduction_vs_baseline_pct": -4.348705756269511
+    },
+    "warm_local": {
+      "cohost_process_cpu_ms": 0.7368219999999981,
+      "client_cpu_ms": 0.6408800000000103,
+      "compute_cpu_ms": 0,
+      "wall_ms": 0.6421609978133347,
+      "download_body_bytes": 0,
+      "computed_nodes": 0,
+      "local_hits": 1,
+      "peer_hits": 0,
+      "cpu_reduction_vs_baseline_pct": 98.08335392643191
+    },
+    "warm_peer": {
+      "cohost_process_cpu_ms": 3.602274999999988,
+      "client_cpu_ms": 1.9885870000000416,
+      "compute_cpu_ms": 0,
+      "wall_ms": 3.5035469991271384,
+      "download_body_bytes": 16581,
+      "computed_nodes": 0,
+      "local_hits": 0,
+      "peer_hits": 1,
+      "cpu_reduction_vs_baseline_pct": 90.62964157603538
+    },
+    "edited": {
+      "cohost_process_cpu_ms": 9.665804,
+      "client_cpu_ms": 9.546157,
+      "compute_cpu_ms": 7.533455000000022,
+      "wall_ms": 9.54780599931837,
+      "download_body_bytes": 0,
+      "computed_nodes": 2,
+      "local_hits": 5,
+      "peer_hits": 0,
+      "cpu_reduction_vs_baseline_pct": null
+    }
+  },
+  "peer_priming_break_even_reuses": 2,
+  "break_even_scope": "steady-state process CPU estimate, not money/energy; excludes setup and storage",
+  "correctness": "all identical-input result hashes matched; edited result matched fresh computation",
+  "runs": {
+    "baseline": [
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 39.99171299999998,
+          "client_cpu_ms": 40.51094400000001,
+          "wall_ms": 40.53643400038709,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.855
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.742
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 5.88
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 7.689
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 7.672
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.145
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.008
+            }
+          ],
+          "cohost_process_cpu_ms": 40.70250699999998
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 37.84964000000002,
+          "client_cpu_ms": 38.2378149999999,
+          "wall_ms": 38.27028799787513,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.611
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.742
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.383
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.086
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.751
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.27
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.008
+            }
+          ],
+          "cohost_process_cpu_ms": 38.44329999999996
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 42.35519700000001,
+          "client_cpu_ms": 42.88408200000005,
+          "wall_ms": 42.92727400024887,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 8.533
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 7.501
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.098
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.538
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.361
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 7.315
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 43.10171499999993
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 38.40345100000009,
+          "client_cpu_ms": 38.84482599999994,
+          "wall_ms": 38.86558999874978,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.582
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.255
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 5.939
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 5.91
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 7.299
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 7.412
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.007
+            }
+          ],
+          "cohost_process_cpu_ms": 39.049318
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 36.513988000000055,
+          "client_cpu_ms": 36.937408000000005,
+          "wall_ms": 37.00113000013516,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.812
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.336
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.193
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 5.93
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 5.978
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.256
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 37.17633200000003
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 36.222111000000275,
+          "client_cpu_ms": 36.576795,
+          "wall_ms": 36.60121800203342,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.867
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.365
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 5.847
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.028
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.045
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.064
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.006
+            }
+          ],
+          "cohost_process_cpu_ms": 36.75015299999984
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 37.4175280000002,
+          "client_cpu_ms": 37.872812999999894,
+          "wall_ms": 37.95433000050252,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.671
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.2
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.104
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.629
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.384
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.42
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.01
+            }
+          ],
+          "cohost_process_cpu_ms": 38.15829700000006
+        },
+        "mode": "baseline",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      }
+    ],
+    "cold_local": [
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 38.22031700000001,
+          "client_cpu_ms": 40.10854799999999,
+          "wall_ms": 40.125505001924466,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 6.608
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 7.1
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.64
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 5.651
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.182
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.034
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.005
+            }
+          ],
+          "cohost_process_cpu_ms": 40.32406699999999
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 38.182072000000005,
+          "client_cpu_ms": 40.16899700000004,
+          "wall_ms": 40.18418199848384,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.707
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.551
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 7.114
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.213
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.429
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.158
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 40.402153
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 36.77633100000011,
+          "client_cpu_ms": 39.02601399999994,
+          "wall_ms": 39.049972998327576,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 6.201
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.259
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 5.851
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 5.994
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.054
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.408
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 39.29063399999999
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 36.49932100000009,
+          "client_cpu_ms": 38.719539999999995,
+          "wall_ms": 38.74949799865135,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.647
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.378
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 5.918
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.225
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.136
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.187
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 38.943062999999945
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 37.961434000000295,
+          "client_cpu_ms": 39.87222700000004,
+          "wall_ms": 39.89910000018426,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 6.999
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.239
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.071
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 6.258
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 5.987
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.399
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.009
+            }
+          ],
+          "cohost_process_cpu_ms": 40.11508599999991
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 36.82126800000018,
+          "client_cpu_ms": 38.60416,
+          "wall_ms": 38.65657099959208,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.55
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.325
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.053
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 5.757
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 6.5
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.629
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.007
+            }
+          ],
+          "cohost_process_cpu_ms": 38.842131999999864
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 39.483984000000085,
+          "client_cpu_ms": 41.56078099999982,
+          "wall_ms": 41.57541200038395,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "c92e302eb2e2",
+              "cpu_ms": 5.654
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "7a966e018d48",
+              "cpu_ms": 6.26
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "65f217188956",
+              "cpu_ms": 6.329
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "c53612f3bc02",
+              "cpu_ms": 7.43
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "c6d6a7fbd2c1",
+              "cpu_ms": 7.423
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "54549d8e6fc8",
+              "cpu_ms": 6.383
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "aaf4a837f2bb",
+              "cpu_ms": 0.006
+            }
+          ],
+          "cohost_process_cpu_ms": 41.761998999999996
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      }
+    ],
+    "warm_local": [
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.6408800000000103,
+          "wall_ms": 0.6421609978133347,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.7368219999999981
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.6221720000000319,
+          "wall_ms": 0.6234030006453395,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.7154799999999906
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.6029439999999386,
+          "wall_ms": 0.6037439998181071,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.6939390000000323
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.0075029999999652,
+          "wall_ms": 1.010325002425816,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 1.1199100000000017
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.5971949999998838,
+          "wall_ms": 0.5980050009384286,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.6892319999998175
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.9617050000001459,
+          "wall_ms": 0.9635060014261398,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 1.105028000000008
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.6518959999999296,
+          "wall_ms": 0.6531569997605402,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.7520349999998732
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      }
+    ],
+    "warm_peer": [
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.1741220000000006,
+          "wall_ms": 3.652388000773499,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.8367079999999945
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9094410000000117,
+          "wall_ms": 3.2087599975056946,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.367459999999989
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.272809999999903,
+          "wall_ms": 3.5468810019665398,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.8048800000000105
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9885870000000416,
+          "wall_ms": 3.329388997372007,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.4573439999999733
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.729081999999993,
+          "wall_ms": 3.0658790019515436,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.247521000000031
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.674532999999979,
+          "wall_ms": 5.054011999163777,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 4.684781000000138
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9e775272a3a4a5fdd3924342fb54b7540df30ad8079bc50dadb001b5866b9aef",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9551069999999005,
+          "wall_ms": 3.5035469991271384,
+          "download_body_bytes": 16581,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "aaf4a837f2bb"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.602274999999988
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      }
+    ],
+    "edited": [
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 11.314737999999991,
+          "client_cpu_ms": 12.83219699999999,
+          "wall_ms": 12.833468997996533,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 11.308
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.007
+            }
+          ],
+          "cohost_process_cpu_ms": 12.952715000000003
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 8.026494999999912,
+          "client_cpu_ms": 9.546157,
+          "wall_ms": 9.54780599931837,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 8.019
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.008
+            }
+          ],
+          "cohost_process_cpu_ms": 9.665804
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 7.443039999999845,
+          "client_cpu_ms": 10.234877000000031,
+          "wall_ms": 10.236553996946895,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 7.436
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.007
+            }
+          ],
+          "cohost_process_cpu_ms": 10.368414999999963
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 7.533455000000022,
+          "client_cpu_ms": 9.192532000000032,
+          "wall_ms": 9.212048000335926,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 7.527
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.006
+            }
+          ],
+          "cohost_process_cpu_ms": 9.402872999999978
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 7.089025000000193,
+          "client_cpu_ms": 8.510301999999914,
+          "wall_ms": 8.528015001502354,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 7.083
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.006
+            }
+          ],
+          "cohost_process_cpu_ms": 8.66743400000014
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 10.253795000000121,
+          "client_cpu_ms": 12.521135999999933,
+          "wall_ms": 12.52287999886903,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 10.246
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.008
+            }
+          ],
+          "cohost_process_cpu_ms": 12.76333499999982
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      },
+      {
+        "result_hash": "9a4205b94109359ea5711c539d6908c09723242dc652fff5b0f52557672a90b2",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 7.0162270000000415,
+          "client_cpu_ms": 8.467358999999952,
+          "wall_ms": 8.483798999805003,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "c92e302eb2e2"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "7a966e018d48"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "65f217188956"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "c53612f3bc02"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "c6d6a7fbd2c1"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "6d1196a9a2c7",
+              "cpu_ms": 7.011
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "0281e4c293ae",
+              "cpu_ms": 0.005
+            }
+          ],
+          "cohost_process_cpu_ms": 8.617799999999898
+        },
+        "mode": "cached",
+        "workspace": "demo",
+        "version": "v1",
+        "workload": "char-minhash-v1"
+      }
+    ]
+  }
+}

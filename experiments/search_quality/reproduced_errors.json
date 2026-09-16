@@ -1,0 +1,12 @@
+[
+  {
+    "case": "wrong cache text type",
+    "observed": "AttributeError",
+    "message": "'int' object has no attribute 'encode'"
+  },
+  {
+    "case": "unknown charset",
+    "observed": "LookupError",
+    "message": "unknown encoding: unsupported-example"
+  }
+]

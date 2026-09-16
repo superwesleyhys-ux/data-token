@@ -1,0 +1,5477 @@
+{
+  "date": "2026-09-16",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "repetitions": 15,
+  "input": {
+    "tokenizer": "o200k_base",
+    "tiktoken_version": "0.14.0",
+    "input_tokens": 9640,
+    "edited_tokens": 9655,
+    "input_bytes": 41156,
+    "input_sha256": "6c0e43fba5860a4d08063b4a7289333f2e950f311c0cdd2064c2edfcd401d8e7",
+    "files": [
+      {
+        "path": "__init__.py",
+        "bytes": 97,
+        "sha256": "b5fe827098c681f2c2c417832d272ae80f609c2178200c1cc31dcc10908a0c5e"
+      },
+      {
+        "path": "__main__.py",
+        "bytes": 4388,
+        "sha256": "2399d869d250f6b42155e90910b9fb9c4b8ce55f2c8792d93fb4dc1e1fe72373"
+      },
+      {
+        "path": "core.py",
+        "bytes": 13936,
+        "sha256": "a9b799f12ef481d8e094de8a681a30c44effc218ba4181fdc844841f7e67a973"
+      },
+      {
+        "path": "demo.py",
+        "bytes": 7327,
+        "sha256": "12b91d2a5739a9907acd6d267f3d4146c5498ed48035a5f34cd0c707d9c010c4"
+      },
+      {
+        "path": "peer.py",
+        "bytes": 6904,
+        "sha256": "bf838fef2b1a7b2cd1da1834a591e0bf258d8786c5d17cd5b8aa6fef37bbb86f"
+      },
+      {
+        "path": "web.py",
+        "bytes": 6619,
+        "sha256": "308247e4c27cab70c5b1682ba449948eeba842bd53f26ae98df990c81172e47d"
+      }
+    ],
+    "scope": "six backend Python files, JSON file wrappers included; excludes frontend, tests and README",
+    "local_device": "offline; no user-device WiFi accessed",
+    "network": "real HTTP on execution-environment loopback"
+  },
+  "correctness": "105 measured outputs matched fresh reference hashes",
+  "measurement_scope": "CPU of this process including cohosted peer threads; downloaded HTTP body bytes only; no GPU/model inference",
+  "preparation_scope": "client cache clear, warm preparation and peer startup excluded from timed requests; source priming reported separately; memory-backed SQLite",
+  "priming": {
+    "local_hits": 0,
+    "peer_hits": 0,
+    "computed_nodes": 7,
+    "compute_cpu_ms": 804.9888540000003,
+    "client_cpu_ms": 807.9596680000003,
+    "wall_ms": 809.7443170008773,
+    "download_body_bytes": 0,
+    "peer_requests": 0,
+    "peer_errors": 0,
+    "peer_rejected": 0,
+    "events": [
+      {
+        "node": "chunk:1",
+        "source": "compute",
+        "key": "5f87b0af556e",
+        "cpu_ms": 6.167
+      },
+      {
+        "node": "chunk:2",
+        "source": "compute",
+        "key": "f8488db20e79",
+        "cpu_ms": 89.394
+      },
+      {
+        "node": "chunk:3",
+        "source": "compute",
+        "key": "ca8cb1ba1d0a",
+        "cpu_ms": 267.323
+      },
+      {
+        "node": "chunk:4",
+        "source": "compute",
+        "key": "be639c762071",
+        "cpu_ms": 150.818
+      },
+      {
+        "node": "chunk:5",
+        "source": "compute",
+        "key": "e19ce2a8b8e7",
+        "cpu_ms": 152.786
+      },
+      {
+        "node": "chunk:6",
+        "source": "compute",
+        "key": "ab2dc5f73867",
+        "cpu_ms": 138.485
+      },
+      {
+        "node": "document",
+        "source": "compute",
+        "key": "8466a7217a83",
+        "cpu_ms": 0.017
+      }
+    ],
+    "cohost_process_cpu_ms": 808.2009559999999
+  },
+  "summary": {
+    "baseline": {
+      "cohost_process_cpu_ms": 770.3618960000042,
+      "client_cpu_ms": 766.3295099999984,
+      "wall_ms": 768.0668210014119,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "peer_requests": 0,
+      "cpu_min_ms": 744.3881309999938,
+      "cpu_max_ms": 839.9635660000015,
+      "cpu_saved_pct": 0.0,
+      "wall_saved_pct": 0.0
+    },
+    "cold_local": {
+      "cohost_process_cpu_ms": 781.1734269999988,
+      "client_cpu_ms": 776.8313770000007,
+      "wall_ms": 779.2320789994847,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "peer_requests": 0,
+      "cpu_min_ms": 745.1083039999986,
+      "cpu_max_ms": 839.9093660000005,
+      "cpu_saved_pct": -1.4034353277507572,
+      "wall_saved_pct": -1.4536831552644625
+    },
+    "warm_local": {
+      "cohost_process_cpu_ms": 0.9494170000010627,
+      "client_cpu_ms": 0.7288299999999026,
+      "wall_ms": 0.7303410020540468,
+      "download_body_bytes": 0,
+      "computed_nodes": 0,
+      "local_hits": 1,
+      "peer_hits": 0,
+      "peer_requests": 0,
+      "cpu_min_ms": 0.9147960000035482,
+      "cpu_max_ms": 1.7751310000022613,
+      "cpu_saved_pct": 99.87675701447193,
+      "wall_saved_pct": 99.90491178865118
+    },
+    "warm_peer": {
+      "cohost_process_cpu_ms": 3.745057999992696,
+      "client_cpu_ms": 2.022376999999409,
+      "wall_ms": 3.553479000402149,
+      "download_body_bytes": 19663,
+      "computed_nodes": 0,
+      "local_hits": 0,
+      "peer_hits": 1,
+      "peer_requests": 1,
+      "cpu_min_ms": 2.57835299999698,
+      "cpu_max_ms": 4.572831000004385,
+      "cpu_saved_pct": 99.51385731570599,
+      "wall_saved_pct": 99.53734767558777
+    },
+    "cold_peer": {
+      "cohost_process_cpu_ms": 781.8422109999972,
+      "client_cpu_ms": 773.8950799999955,
+      "wall_ms": 779.17515900117,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "peer_requests": 7,
+      "cpu_min_ms": 752.392239999999,
+      "cpu_max_ms": 866.4990879999976,
+      "cpu_saved_pct": -1.4902495904331348,
+      "wall_saved_pct": -1.4462723419395918
+    },
+    "edited_baseline": {
+      "cohost_process_cpu_ms": 783.1233590000011,
+      "client_cpu_ms": 779.2743019999975,
+      "wall_ms": 781.0436969994043,
+      "download_body_bytes": 0,
+      "computed_nodes": 7,
+      "local_hits": 0,
+      "peer_hits": 0,
+      "peer_requests": 0,
+      "cpu_min_ms": 746.2212350000002,
+      "cpu_max_ms": 836.8991689999987,
+      "cpu_saved_pct": 0.0,
+      "wall_saved_pct": 0.0
+    },
+    "edited_local": {
+      "cohost_process_cpu_ms": 125.12858799999904,
+      "client_cpu_ms": 124.12804799999932,
+      "wall_ms": 124.37165299706976,
+      "download_body_bytes": 0,
+      "computed_nodes": 2,
+      "local_hits": 5,
+      "peer_hits": 0,
+      "peer_requests": 0,
+      "cpu_min_ms": 120.26559299999917,
+      "cpu_max_ms": 130.83331500000028,
+      "cpu_saved_pct": 84.02185472289061,
+      "wall_saved_pct": 84.07622345908713
+    }
+  },
+  "cumulative_estimates": [
+    {
+      "receiver_reuses": 1,
+      "baseline_cpu_ms": 770.3618960000042,
+      "priming_plus_reuse_cpu_ms": 811.9460139999926,
+      "net_saved_pct": -5.397997774280894
+    },
+    {
+      "receiver_reuses": 2,
+      "baseline_cpu_ms": 1540.7237920000084,
+      "priming_plus_reuse_cpu_ms": 815.6910719999853,
+      "net_saved_pct": 47.05792977071253
+    },
+    {
+      "receiver_reuses": 5,
+      "baseline_cpu_ms": 3851.809480000021,
+      "priming_plus_reuse_cpu_ms": 826.9262459999634,
+      "net_saved_pct": 78.53148629770861
+    },
+    {
+      "receiver_reuses": 10,
+      "baseline_cpu_ms": 7703.618960000042,
+      "priming_plus_reuse_cpu_ms": 845.6515359999269,
+      "net_saved_pct": 89.0226718067073
+    },
+    {
+      "receiver_reuses": 100,
+      "baseline_cpu_ms": 77036.18960000042,
+      "priming_plus_reuse_cpu_ms": 1182.7067559992695,
+      "net_saved_pct": 98.46473876480611
+    }
+  ],
+  "runs": {
+    "baseline": [
+      {
+        "trial": 0,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 746.8750089999982,
+          "client_cpu_ms": 747.5583410000004,
+          "wall_ms": 748.8372389998403,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.511
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.549
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.589
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 146.526
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.048
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 119.629
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.022
+            }
+          ],
+          "cohost_process_cpu_ms": 750.7589580000005
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 745.8157009999989,
+          "client_cpu_ms": 746.4963899999999,
+          "wall_ms": 748.1244039990997,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.561
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.793
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 235.67
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 147.246
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 150.656
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 115.865
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 750.0740270000001
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 762.9244289999981,
+          "client_cpu_ms": 763.6031540000001,
+          "wall_ms": 764.8984949992155,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.169
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.145
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 238.012
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 154.591
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 154.442
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 120.542
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 767.0565260000011
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 781.6720560000015,
+          "client_cpu_ms": 782.5374700000011,
+          "wall_ms": 784.2399699984526,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.453
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.908
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 254.64
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 156.716
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 147.697
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 126.233
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 786.2728039999993
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 746.1708229999929,
+          "client_cpu_ms": 746.9059310000006,
+          "wall_ms": 748.235458999261,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.19
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 87.619
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 246.286
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 145.116
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 146.661
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 114.272
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 750.5241210000015
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 778.0191909999985,
+          "client_cpu_ms": 778.869182000001,
+          "wall_ms": 780.3526079987932,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.45
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.267
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 240.276
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 157.143
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 162.864
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 120.994
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 782.8487379999984
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 771.0878829999891,
+          "client_cpu_ms": 771.9398650000003,
+          "wall_ms": 773.3126309976797,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.331
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 92.105
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 246.538
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 156.822
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 152.556
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 116.711
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 776.1360060000015
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 765.5549520000166,
+          "client_cpu_ms": 766.3295099999984,
+          "wall_ms": 768.0668210014119,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.197
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.082
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 241.215
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.837
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 157.267
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.933
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 770.3618960000042
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 754.4004219999962,
+          "client_cpu_ms": 755.2527660000053,
+          "wall_ms": 756.866354997328,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.253
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.505
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 243.401
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.591
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 146.804
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.819
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 759.2343790000058
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 739.220166999992,
+          "client_cpu_ms": 740.0187599999981,
+          "wall_ms": 741.7186339989712,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.388
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.129
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 232.462
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.054
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.402
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 114.76
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 744.3881309999938
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 806.4342059999915,
+          "client_cpu_ms": 807.3895120000003,
+          "wall_ms": 809.0423150024435,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 7.665
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 94.999
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 255.528
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 159.874
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 160.808
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 127.537
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 811.3817340000012
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 833.5090620000044,
+          "client_cpu_ms": 834.3531849999977,
+          "wall_ms": 836.6682490013773,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 7.079
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 106.514
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 271.413
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 162.193
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 159.756
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 126.53
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 839.9635660000015
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 766.4146980000125,
+          "client_cpu_ms": 767.2353750000057,
+          "wall_ms": 768.5898769996129,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.459
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 94.188
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 250.58
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 147.648
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 150.417
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.099
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 770.860588000005
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 759.1598669999939,
+          "client_cpu_ms": 760.2673380000056,
+          "wall_ms": 762.0173539980897,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.63
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.752
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 238.141
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.171
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.839
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 119.602
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 763.9658230000066
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 783.8663279999878,
+          "client_cpu_ms": 784.6461949999934,
+          "wall_ms": 786.1605519974546,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.975
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 95.413
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 254.256
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 156.899
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 149.241
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 121.055
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 788.6032459999939
+        }
+      }
+    ],
+    "cold_local": [
+      {
+        "trial": 0,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 742.7627519999991,
+          "client_cpu_ms": 745.3123809999997,
+          "wall_ms": 746.5783949992328,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.25
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.442
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 235.469
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 147.973
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.362
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 116.243
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 748.6795419999996
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 760.502734000001,
+          "client_cpu_ms": 762.9920519999995,
+          "wall_ms": 764.491565998469,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.599
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.365
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 240.781
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.631
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.749
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 124.354
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 767.1290779999999
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 775.3855580000036,
+          "client_cpu_ms": 777.9997240000025,
+          "wall_ms": 779.367380997428,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.139
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 91.887
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 243.561
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.955
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 158.409
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 122.409
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 781.7848930000011
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 832.9996579999985,
+          "client_cpu_ms": 835.6778879999993,
+          "wall_ms": 837.2786110012385,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.424
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 94.64
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 245.262
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 198.582
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 162.986
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 125.079
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 839.9093660000005
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 738.8787130000019,
+          "client_cpu_ms": 741.5204170000003,
+          "wall_ms": 742.9132409997692,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.148
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.131
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 235.075
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 146.843
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 147.125
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 115.532
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 745.1083039999986
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 789.2908149999976,
+          "client_cpu_ms": 792.2272180000007,
+          "wall_ms": 794.0811490007036,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.811
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 100.462
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 244.744
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.551
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 156.142
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 128.555
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 796.3471880000021
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 758.9424129999998,
+          "client_cpu_ms": 761.6505349999941,
+          "wall_ms": 762.9398230019433,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.557
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.352
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.699
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 154.757
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 151.6
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 118.952
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 765.3315999999961
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 774.4448799999972,
+          "client_cpu_ms": 777.2734309999976,
+          "wall_ms": 779.2320789994847,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.209
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.819
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 248.86
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.558
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 160.924
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 119.053
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.022
+            }
+          ],
+          "cohost_process_cpu_ms": 781.7836629999988
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 754.0194889999939,
+          "client_cpu_ms": 756.7830939999993,
+          "wall_ms": 758.7314890006382,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.256
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.324
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 238.236
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.825
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 150.478
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 120.873
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 761.2910470000003
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 780.0223269999905,
+          "client_cpu_ms": 782.7131840000021,
+          "wall_ms": 784.9517659997218,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.143
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.326
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 247.03
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 154.668
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 156.428
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 126.403
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 787.950721999998
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 807.9504129999932,
+          "client_cpu_ms": 810.9460829999975,
+          "wall_ms": 812.7320670027984,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.467
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.319
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 252.842
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 160.48
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 161.296
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 133.52
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 814.8746650000049
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 757.1822370000093,
+          "client_cpu_ms": 759.8818660000006,
+          "wall_ms": 761.1492720025126,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.228
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.056
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.464
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 150.392
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 149.687
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 124.328
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 763.3779200000035
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 773.4772210000001,
+          "client_cpu_ms": 776.8313770000007,
+          "wall_ms": 779.2891439967207,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.82
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.587
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 239.358
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.676
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 162.552
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 125.459
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 781.1734269999988
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 751.5595149999967,
+          "client_cpu_ms": 754.186157999996,
+          "wall_ms": 755.7905540015781,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.337
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.194
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 239.325
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.666
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.342
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 114.668
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 758.1308890000003
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 822.8041029999815,
+          "client_cpu_ms": 826.0766109999906,
+          "wall_ms": 827.6254889970005,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 7.477
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 96.407
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 254.948
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 171.071
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 169.015
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 123.858
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 830.8901810000009
+        }
+      }
+    ],
+    "warm_local": [
+      {
+        "trial": 0,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7429410000003855,
+          "wall_ms": 0.7440309964295011,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9629770000003646
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.708851000000621,
+          "wall_ms": 0.7098210007825401,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9190520000004199
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7273279999999716,
+          "wall_ms": 0.7282580008904915,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9568380000004595
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.878641999999985,
+          "wall_ms": 0.8925110014388338,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 1.1326189999998348
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7318349999998475,
+          "wall_ms": 0.732734002667712,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9494170000010627
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.737011999998316,
+          "wall_ms": 0.7381330033240374,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.950147999997597
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7787440000015522,
+          "wall_ms": 0.7798449987603817,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9886349999987942
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7288299999999026,
+          "wall_ms": 0.7303410020540468,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9434179999985304
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.6937779999987015,
+          "wall_ms": 0.6948690024728421,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9299789999985819
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7227609999986839,
+          "wall_ms": 0.7238409998535644,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9341340000048604
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7181639999984668,
+          "wall_ms": 0.7191340009740088,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9275540000004412
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7195459999991272,
+          "wall_ms": 0.7208269998955075,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 1.7751310000022613
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7369920000002139,
+          "wall_ms": 0.7381020004686434,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9486359999897331
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.7017799999999852,
+          "wall_ms": 0.7025200029602274,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.9147960000035482
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 1,
+          "peer_hits": 0,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 0.738163000008285,
+          "wall_ms": 0.7393550004053395,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "local",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 0.950578000001201
+        }
+      }
+    ],
+    "warm_peer": [
+      {
+        "trial": 0,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9537359999999282,
+          "wall_ms": 3.6151509993942454,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.805669999999317
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.8693689999995655,
+          "wall_ms": 3.280354998423718,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.5255690000006723
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.1530499999986574,
+          "wall_ms": 3.553479000402149,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.7433469999985647
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.022376999999409,
+          "wall_ms": 3.440422999119619,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.756741000000119
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.8461570000027905,
+          "wall_ms": 3.2874969983822666,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.51150899999908
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9024390000019764,
+          "wall_ms": 3.281076998973731,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.537687999997985
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.0147569999977577,
+          "wall_ms": 3.5241360019426793,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.7565630000031547
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.9184140000021443,
+          "wall_ms": 3.3714599994709715,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.6876570000003994
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.155797000000348,
+          "wall_ms": 3.9570480003021657,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 4.20069199999773
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.1012750000011238,
+          "wall_ms": 3.9337240013992414,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 2.57835299999698
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 3.6555670000026907,
+          "wall_ms": 5.46676399972057,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 4.3899089999968055
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.3702829999976416,
+          "wall_ms": 4.28331099828938,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 4.572831000004385
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.5489380000038864,
+          "wall_ms": 4.502766998484731,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.229149999995684
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 1.8905710000041154,
+          "wall_ms": 3.508865000185324,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 3.745057999992696
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 1,
+          "computed_nodes": 0,
+          "compute_cpu_ms": 0,
+          "client_cpu_ms": 2.3597080000001824,
+          "wall_ms": 4.0329300027224235,
+          "download_body_bytes": 19663,
+          "peer_requests": 1,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "document",
+              "source": "peer",
+              "key": "8466a7217a83"
+            }
+          ],
+          "cohost_process_cpu_ms": 4.3852250000071535
+        }
+      }
+    ],
+    "cold_peer": [
+      {
+        "trial": 0,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 757.7715120000003,
+          "client_cpu_ms": 763.5163349999998,
+          "wall_ms": 769.2405060006422,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.34
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.119
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 240.199
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.05
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 152.08
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 119.964
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.019
+            }
+          ],
+          "cohost_process_cpu_ms": 771.190152
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 752.9672599999983,
+          "client_cpu_ms": 759.0891119999999,
+          "wall_ms": 764.0606140012096,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.387
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.064
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 240.262
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.173
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 149.115
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 118.941
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 766.3099679999998
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 780.3139689999998,
+          "client_cpu_ms": 785.7432720000013,
+          "wall_ms": 790.7468640005391,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.62
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 96.092
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 241.466
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 154.646
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 157.41
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 124.054
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 792.8539370000003
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 783.6074220000029,
+          "client_cpu_ms": 790.8641369999998,
+          "wall_ms": 796.1672310011636,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.511
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.982
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 241.788
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 159.307
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 158.087
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 127.904
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.028
+            }
+          ],
+          "cohost_process_cpu_ms": 798.8995579999987
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 852.6864809999993,
+          "client_cpu_ms": 858.7716480000012,
+          "wall_ms": 867.4494979968586,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.745
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 92.799
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 250.803
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 224.834
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 156.082
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 121.397
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 866.4990879999976
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 827.0205920000038,
+          "client_cpu_ms": 833.3115000000007,
+          "wall_ms": 838.5674720011593,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.339
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 101.193
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 264.645
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 170.341
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 162.307
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 122.175
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.022
+            }
+          ],
+          "cohost_process_cpu_ms": 841.2843810000013
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 796.4591400000031,
+          "client_cpu_ms": 802.4475240000015,
+          "wall_ms": 808.721899997181,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.203
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 96.178
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 253.065
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 158.66
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 159.428
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 122.905
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.02
+            }
+          ],
+          "cohost_process_cpu_ms": 810.5956419999991
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 768.0434749999848,
+          "client_cpu_ms": 773.8950799999955,
+          "wall_ms": 779.17515900117,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.342
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.525
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 245.068
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 158.428
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 149.974
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.683
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 781.8422109999972
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 749.192910000005,
+          "client_cpu_ms": 755.262413000004,
+          "wall_ms": 761.6359060011746,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.325
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.775
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 239.493
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 147.813
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.563
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 118.201
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.022
+            }
+          ],
+          "cohost_process_cpu_ms": 763.9473199999998
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 746.9476769999943,
+          "client_cpu_ms": 752.9387350000007,
+          "wall_ms": 759.0513780014589,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.282
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 90.705
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.701
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 150.278
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 146.582
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 115.376
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 762.0264840000033
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 738.2806869999997,
+          "client_cpu_ms": 743.9066429999955,
+          "wall_ms": 750.0118900024972,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.542
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.41
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 232.166
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 145.6
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 147.64
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.899
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 752.392239999999
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 765.7079199999898,
+          "client_cpu_ms": 771.765293999998,
+          "wall_ms": 777.8122100025939,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.21
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 98.359
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 238.619
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 153.905
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 152.829
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 115.762
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 780.4985199999948
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 795.3989660000004,
+          "client_cpu_ms": 801.9091130000006,
+          "wall_ms": 808.2014649990015,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 10.73
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 98.525
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 254.314
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 155.332
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 157.57
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 118.905
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 809.686413999998
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 772.5747269999914,
+          "client_cpu_ms": 778.8488650000005,
+          "wall_ms": 783.8509969988081,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.266
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.377
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 255.513
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.464
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 150.38
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 117.548
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 786.2740919999993
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "a9d2d9ac8551c2512e3b0fa0a516669152565e4f1a23c2b001dd3b102f224845",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 746.7205579999785,
+          "client_cpu_ms": 752.2609699999947,
+          "wall_ms": 757.1721299973433,
+          "download_body_bytes": 0,
+          "peer_requests": 7,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 9.271
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.292
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 235.921
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.036
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.9
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "ab2dc5f73867",
+              "cpu_ms": 116.275
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "8466a7217a83",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 759.6159659999984
+        }
+      }
+    ],
+    "edited_baseline": [
+      {
+        "trial": 0,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 742.2931460000007,
+          "client_cpu_ms": 743.0890789999997,
+          "wall_ms": 744.2823269993823,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.224
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 88.758
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 236.189
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.234
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 145.656
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 117.207
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 746.2212350000002
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 753.7655179999998,
+          "client_cpu_ms": 754.4697020000007,
+          "wall_ms": 755.7936659977713,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.364
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.107
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.889
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.265
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 149.128
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 118.987
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 757.8910360000002
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 790.1826890000017,
+          "client_cpu_ms": 790.9009329999997,
+          "wall_ms": 792.2425530014152,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 7.031
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.109
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 253.103
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 155.301
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 156.072
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 125.543
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 794.2846669999994
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 812.3762970000001,
+          "client_cpu_ms": 813.155260000002,
+          "wall_ms": 815.0798400019994,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 7.545
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 98.828
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 258.675
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 161.285
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 162.086
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.929
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.029
+            }
+          ],
+          "cohost_process_cpu_ms": 817.6946820000026
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 815.0185660000063,
+          "client_cpu_ms": 815.7337249999977,
+          "wall_ms": 817.3127279987966,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.397
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.239
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 260.631
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.229
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 177.378
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 129.12
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 819.7696609999987
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 789.5113470000013,
+          "client_cpu_ms": 790.3443199999991,
+          "wall_ms": 791.9465279992437,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.489
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 96.381
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 247.825
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.909
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 155.728
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 130.152
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.028
+            }
+          ],
+          "cohost_process_cpu_ms": 796.5376070000012
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 765.0305950000131,
+          "client_cpu_ms": 766.6674390000026,
+          "wall_ms": 767.8457809997781,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.337
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 91.615
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 240.953
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 149.573
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 153.499
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.03
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 771.4278360000009
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 776.3992589999943,
+          "client_cpu_ms": 777.175217,
+          "wall_ms": 778.6329170012323,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.323
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 93.752
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 247.976
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 150.647
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 154.089
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.589
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 781.0572180000008
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 755.1504980000132,
+          "client_cpu_ms": 755.952275999995,
+          "wall_ms": 758.120141003019,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.206
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 92.161
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 237.26
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 152.228
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.247
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 119.022
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 760.5553630000018
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 747.9805959999978,
+          "client_cpu_ms": 748.7730599999977,
+          "wall_ms": 750.5970429992885,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.415
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 92.023
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 233.574
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 148.047
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 148.811
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 119.083
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.028
+            }
+          ],
+          "cohost_process_cpu_ms": 753.1278229999998
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 824.0831559999932,
+          "client_cpu_ms": 824.9059970000019,
+          "wall_ms": 826.4048860000912,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 8.429
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 100.436
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 254.837
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 168.997
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 158.136
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 133.22
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.027
+            }
+          ],
+          "cohost_process_cpu_ms": 829.7885659999977
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 830.2945200000097,
+          "client_cpu_ms": 831.2224560000061,
+          "wall_ms": 833.4969059978903,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 8.884
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 95.629
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 260.731
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 183.64
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 154.098
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 127.282
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.03
+            }
+          ],
+          "cohost_process_cpu_ms": 836.8991689999987
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 778.4231010000015,
+          "client_cpu_ms": 779.2743019999975,
+          "wall_ms": 781.0436969994043,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.186
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 89.459
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 238.9
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 147.49
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 161.307
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 134.991
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.091
+            }
+          ],
+          "cohost_process_cpu_ms": 783.1233590000011
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 765.1281359999871,
+          "client_cpu_ms": 765.9264699999966,
+          "wall_ms": 767.2371240005305,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.829
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 91.095
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 245.868
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 146.877
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 152.254
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 122.177
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.028
+            }
+          ],
+          "cohost_process_cpu_ms": 769.7450930000116
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 0,
+          "peer_hits": 0,
+          "computed_nodes": 7,
+          "compute_cpu_ms": 804.7083630000174,
+          "client_cpu_ms": 805.6111009999967,
+          "wall_ms": 806.8342940023285,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "compute",
+              "key": "5f87b0af556e",
+              "cpu_ms": 6.307
+            },
+            {
+              "node": "chunk:2",
+              "source": "compute",
+              "key": "f8488db20e79",
+              "cpu_ms": 91.373
+            },
+            {
+              "node": "chunk:3",
+              "source": "compute",
+              "key": "ca8cb1ba1d0a",
+              "cpu_ms": 247.869
+            },
+            {
+              "node": "chunk:4",
+              "source": "compute",
+              "key": "be639c762071",
+              "cpu_ms": 165.283
+            },
+            {
+              "node": "chunk:5",
+              "source": "compute",
+              "key": "e19ce2a8b8e7",
+              "cpu_ms": 163.18
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 130.672
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 809.3783019999989
+        }
+      }
+    ],
+    "edited_local": [
+      {
+        "trial": 0,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 127.53906100000023,
+          "client_cpu_ms": 129.77187000000035,
+          "wall_ms": 129.97913399885874,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 127.462
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.077
+            }
+          ],
+          "cohost_process_cpu_ms": 130.83331500000028
+        }
+      },
+      {
+        "trial": 1,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 122.44240900000136,
+          "client_cpu_ms": 124.12804799999932,
+          "wall_ms": 124.37165299706976,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 122.42
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 125.12858799999904
+        }
+      },
+      {
+        "trial": 2,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 123.85579600000085,
+          "client_cpu_ms": 125.57481400000015,
+          "wall_ms": 125.77707099990221,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.833
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 126.31384800000056
+        }
+      },
+      {
+        "trial": 3,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 120.76201700000055,
+          "client_cpu_ms": 122.62929499999942,
+          "wall_ms": 122.84571499913,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 120.737
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 123.43694999999855
+        }
+      },
+      {
+        "trial": 4,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 124.85786099999885,
+          "client_cpu_ms": 126.72066100000023,
+          "wall_ms": 126.94554299741867,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 124.836
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.022
+            }
+          ],
+          "cohost_process_cpu_ms": 127.66745200000074
+        }
+      },
+      {
+        "trial": 5,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 123.63121200000293,
+          "client_cpu_ms": 125.55275000000066,
+          "wall_ms": 125.81847800174728,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.592
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.039
+            }
+          ],
+          "cohost_process_cpu_ms": 126.35798299999834
+        }
+      },
+      {
+        "trial": 6,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 123.23008900000332,
+          "client_cpu_ms": 125.05738700000535,
+          "wall_ms": 125.23253399922396,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 123.21
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.02
+            }
+          ],
+          "cohost_process_cpu_ms": 125.81872700000218
+        }
+      },
+      {
+        "trial": 7,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 125.20812799999703,
+          "client_cpu_ms": 126.93145200000089,
+          "wall_ms": 127.28941900058999,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 125.187
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.021
+            }
+          ],
+          "cohost_process_cpu_ms": 127.8541269999991
+        }
+      },
+      {
+        "trial": 8,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 119.3399750000026,
+          "client_cpu_ms": 121.12331700000567,
+          "wall_ms": 121.55584100037231,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 119.317
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 122.09484899999978
+        }
+      },
+      {
+        "trial": 9,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 118.81198799999737,
+          "client_cpu_ms": 120.77781200000004,
+          "wall_ms": 121.09369000245351,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 118.786
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.026
+            }
+          ],
+          "cohost_process_cpu_ms": 121.78434500000179
+        }
+      },
+      {
+        "trial": 10,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 119.6875080000055,
+          "client_cpu_ms": 121.5015270000066,
+          "wall_ms": 121.72006799664814,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 119.664
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.023
+            }
+          ],
+          "cohost_process_cpu_ms": 122.26147200000526
+        }
+      },
+      {
+        "trial": 11,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 118.43803300000388,
+          "client_cpu_ms": 120.5647049999996,
+          "wall_ms": 120.8660910015169,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 118.397
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.041
+            }
+          ],
+          "cohost_process_cpu_ms": 121.50183700000383
+        }
+      },
+      {
+        "trial": 12,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 125.4809689999945,
+          "client_cpu_ms": 127.3422069999981,
+          "wall_ms": 127.65570500050671,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 125.435
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.046
+            }
+          ],
+          "cohost_process_cpu_ms": 128.34359500000403
+        }
+      },
+      {
+        "trial": 13,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 118.2496480000026,
+          "client_cpu_ms": 120.0067219999994,
+          "wall_ms": 120.21849099983228,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 118.225
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.025
+            }
+          ],
+          "cohost_process_cpu_ms": 120.83156299999587
+        }
+      },
+      {
+        "trial": 14,
+        "result_hash": "12030d233039c41379c987bf0985d0e452b5735b06ec890c5a1cc96a7a7df6cd",
+        "metrics": {
+          "local_hits": 5,
+          "peer_hits": 0,
+          "computed_nodes": 2,
+          "compute_cpu_ms": 117.55947400000366,
+          "client_cpu_ms": 119.3192909999965,
+          "wall_ms": 119.47757400048431,
+          "download_body_bytes": 0,
+          "peer_requests": 0,
+          "peer_errors": 0,
+          "peer_rejected": 0,
+          "events": [
+            {
+              "node": "chunk:1",
+              "source": "local",
+              "key": "5f87b0af556e"
+            },
+            {
+              "node": "chunk:2",
+              "source": "local",
+              "key": "f8488db20e79"
+            },
+            {
+              "node": "chunk:3",
+              "source": "local",
+              "key": "ca8cb1ba1d0a"
+            },
+            {
+              "node": "chunk:4",
+              "source": "local",
+              "key": "be639c762071"
+            },
+            {
+              "node": "chunk:5",
+              "source": "local",
+              "key": "e19ce2a8b8e7"
+            },
+            {
+              "node": "chunk:6",
+              "source": "compute",
+              "key": "b4d80741ca4a",
+              "cpu_ms": 117.536
+            },
+            {
+              "node": "document",
+              "source": "compute",
+              "key": "06a501d8fab1",
+              "cpu_ms": 0.024
+            }
+          ],
+          "cohost_process_cpu_ms": 120.26559299999917
+        }
+      }
+    ]
+  }
+}

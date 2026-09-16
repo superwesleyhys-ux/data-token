@@ -1,0 +1,16 @@
+{
+  "success": false,
+  "network": [],
+  "errors": [
+    {
+      "url": "https://docs.python.org/3/library/argparse.html",
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    }
+  ],
+  "metrics": {
+    "cpu_ms": 4.279111000000002,
+    "wall_ms": 4.791974002728239,
+    "successful_download_body_bytes": 0,
+    "download_scope": "successful document response bodies only; failures may transfer additional bytes"
+  }
+}
