@@ -1,11 +1,11 @@
-2026年9月，示范项目开始验证文档计算复用。小组整理了120份材料，并把每段文本保存为独立输入。数字、否定词和段落顺序都影响结果；系统没有把相似的问题直接当作同一个问题。本段负责说明输入边界、数据来源与任务版本，每次修改都必须通过内容哈希触发验证。
+In September 2026, a demonstration project began validating document computation reuse. The team organized 120 source documents and stored each paragraph as a separate input. Numbers, negations, and paragraph order affect the result; similar questions are not treated as identical. This paragraph describes input boundaries, data sources, and task versions. Every edit must trigger content-hash validation.
 
-网络连接负责传输已经生成的计算结果，不能凭空提供GPU算力。工作站先对文本生成字符片段，再计算可用于文字相似度比较的MinHash指纹。相同内容再次出现时，可以取得已有指纹。本演示测量CPU时间和下载字节数，不把网络流量标记为模型推理能力，也不承诺减少任何订阅产品的额度。
+A network connection transfers results that have already been computed; it cannot create GPU capacity. The workstation breaks text into character fragments and computes MinHash fingerprints for lexical similarity comparisons. Identical content can reuse an existing fingerprint. This demo measures CPU time and downloaded bytes. It does not equate bandwidth with model inference or promise to reduce subscription usage.
 
-缓存保留期设为3600秒。结果只有在输入、工作区、计算代码、任务参数和权限修订号全部一致时才能复用。过期记录与校验失败的记录需要重新计算。远端节点使用共享密钥认证，HTTP服务默认仅绑定本机地址。若有多人共同使用，应进一步增加独立身份管理和分租户访问控制。
+The cache lifetime is 3600 seconds. Results can be reused only when the input, workspace, computation code, task parameters, and permission revision all match. Expired or invalid records require recomputation. Remote nodes use a shared authentication token, and the HTTP service binds only to loopback by default. Multiple users would require additional identity management and tenant-level access controls.
 
-当第4段里的预算从300元改为360元时，前三段的计算结果仍可复用。第四段与汇总节点需要更新，剩余段落保持独立。本实验使用空行划分段落，没有对文字做摘要或改写。因此改变否定表述、价格、日期或来源版本，不会误中原来的精确缓存；新增段落也不会使全部任务强制重算。
+When the budget in paragraph 4 changes from 300 to 360, results for the first three paragraphs can still be reused. The fourth paragraph and aggregate must be updated; the remaining paragraphs stay independent. This experiment uses blank lines to separate paragraphs, without summarizing or rewriting their text. Changes to negations, prices, dates, or source versions will not reuse the old exact result. Adding a paragraph does not force every task to run again.
 
-项目验收同时检查正确性和资源消耗。先在没有缓存的情况下运行任务，再分别测量首次填充、本地重复命中、通过HTTP下载和单段编辑的行为。下载测试必须把远端首次生成结果的成本单独列出。所有统计都来自本机执行；环回网络的时延不能代表真实家庭WiFi，更不能代表跨地区网络。
+Acceptance checks cover both correctness and resource consumption. Run the task without caching first, then measure the initial cache fill, repeated local hits, HTTP downloads, and a single-paragraph edit. Download tests report the remote source's initial computation cost separately. All measurements come from the execution device. Loopback latency does not represent real home WiFi or a network between regions.
 
-最终目标是让已经完成的工作可以安全重复使用。系统面板展示每个节点是重新计算、本地命中还是远端命中，并保留结果摘要供用户核对。以后可以接入本地模型或经过授权的API，但必须重新测试正确性、延迟和总成本。本阶段没有ChatGPT登录、代理额度、免费算力交换或后台外部模型调用。
+The goal is to reuse completed work safely. The dashboard shows whether each node was computed, found locally, or fetched from a peer, and preserves a result summary for comparison. Future integrations with local models or authorized APIs must revalidate correctness, latency, and total cost. This stage provides no ChatGPT login, subscription-quota proxy, free-compute exchange, or background external model calls.

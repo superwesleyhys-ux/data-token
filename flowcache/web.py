@@ -101,7 +101,7 @@ def make_dashboard(data_dir: Path, port: int = 8080) -> ThreadingHTTPServer:
                     elif scenario in ("edited", "version"):
                         prime = measured(harness, text)
                         if scenario == "edited":
-                            text += " 追加：本段已修改，预算不增加。"
+                            text += " Update: this paragraph has changed; the budget will not increase."
                         else:
                             harness = Harness(cache, permutations=permutations, version="v2")
                         output = measured(harness, text)

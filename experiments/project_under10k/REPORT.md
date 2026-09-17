@@ -1,34 +1,34 @@
-# 9,640 token 后端项目：计算复用实测
+# Computation reuse for a 9,640-token backend project
 
-**本次测量是代码指纹计算，不是大模型推理；没有调用用户 iPad 的流量。**
+**This measurement covers code fingerprinting, not large-model inference. It did not use the user's iPad network connection.** This historical report describes the original frozen input, not the later English demo sample.
 
-## 输入与运行
+## Input and execution
 
-6 个后端 Python 源码文件，按文件建立 6 个计算节点和 1 个汇总节点。原始输入 9,640 token；修改后 9,655 token。均以 o200k_base 真实分词计数，包含路径与 JSON 包装，未计入前端、README 和测试文件。
+Six backend Python source files form 6 file nodes and 1 aggregate node. The original input contains 9,640 tokens; the edited input contains 9,655. Both were counted using o200k_base, including path and JSON wrappers but excluding frontend code, the README, and tests.
 
-每种场景 15 次，顺序打散；共 105 次测量，全部与对应输入的完整重算结果一致。另运行项目 CLI 两次，首次计算 7 个节点、第二次 0 个节点，输出一致；22 项单元及集成测试通过。
+Each scenario ran 15 times in shuffled order, for 105 measurements. Every output matched full recomputation of the corresponding input. Two additional CLI runs computed 7 nodes on the first run and 0 on the second, with identical outputs. All 22 unit and integration tests passed.
 
-## 实测中位数
+## Measured medians
 
-| 场景 | CPU / ms | 经过时间 / ms | 下载响应体 | CPU 减少 |
+| Scenario | CPU / ms | Elapsed / ms | Downloaded body | CPU reduction |
 | --- | ---: | ---: | ---: | ---: |
-| 全量重算 | 770.362 | 768.067 | 0 bytes | 0.00% |
-| 首次建立本地缓存 | 781.173 | 779.232 | 0 bytes | -1.40% |
-| 重复输入，本地缓存 | 0.949 | 0.730 | 0 bytes | 99.88% |
-| 重复输入，HTTP 取回 | 3.745 | 3.553 | 19,663 bytes | 99.51% |
-| 远端无缓存，回退重算 | 781.842 | 779.175 | 0 bytes | -1.49% |
-| 修改文件后全量重算 | 783.123 | 781.044 | 0 bytes | 0.00% |
-| 修改 1 个文件后局部重算 | 125.129 | 124.372 | 0 bytes | 84.02% |
+| Full recomputation | 770.362 | 768.067 | 0 bytes | 0.00% |
+| Cold local cache fill | 781.173 | 779.232 | 0 bytes | -1.40% |
+| Repeated input, local cache | 0.949 | 0.730 | 0 bytes | 99.88% |
+| Repeated input, HTTP retrieval | 3.745 | 3.553 | 19,663 bytes | 99.51% |
+| Remote miss, local recomputation | 781.842 | 779.175 | 0 bytes | -1.49% |
+| Full recomputation after editing | 783.123 | 781.044 | 0 bytes | 0.00% |
+| Partial recomputation after editing 1 file | 125.129 | 124.372 | 0 bytes | 84.02% |
 
-修改场景相对“修改文件后全量重算”比较，其他场景相对原始输入全量重算比较。CPU 为客户端与同进程 HTTP 节点合计；负的减少比例代表增加。
+Edited scenarios use full recomputation of the edited input as their baseline; all others use the original-input baseline. CPU includes the client and colocated HTTP node. Negative reduction means increased CPU consumption.
 
-源端首次生成还需要 **808.201 ms CPU**。热命中数据不包含这笔初始成本。
+Source priming required another **808.201 ms of CPU time**, which is excluded from the warm-hit measurements.
 
-## 把首次生成算进去
+## Including initial computation
 
-下表按实测中位数估算相同输入被远端接收端复用 N 次的总成本，包含源端首次生成，不是额外执行的 100 次实验。
+The following table estimates total cost for N remote reuses of the same input using measured medians, including source priming. It does not represent an additional 100 experimental runs.
 
-| 复用次数 | 每次重新计算，总 CPU / ms | 首次生成 + 网络复用，总 CPU / ms | 净减少 |
+| Reuses | Recompute each time: total CPU / ms | Priming + network reuse: total CPU / ms | Net reduction |
 | ---: | ---: | ---: | ---: |
 | 1 | 770.36 | 811.95 | -5.40% |
 | 2 | 1540.72 | 815.69 | 47.06% |
@@ -36,14 +36,14 @@
 | 10 | 7703.62 | 845.65 | 89.02% |
 | 100 | 77036.19 | 1182.71 | 98.46% |
 
-因此，本次任务在源端计算结果可复用时，传回约 19.2 KiB 可以避开约 0.77 秒的重复 CPU 工作；不存在固定 GB 到算力的兑换率。这不是 GPU 性能、ChatGPT token 或订阅额度的节省。
+For this task, when the source result is reusable, transferring approximately 19.2 KiB avoids about 0.77 seconds of repeated CPU work. There is no fixed conversion from GB to computing power. These results do not measure GPU performance, ChatGPT tokens, or subscription-quota savings.
 
-## iPad 与实验限制
+## iPad and experimental limitations
 
-当前可见的 Mac 远程执行设备离线，未发现 iPad 执行端。聊天权限不能直接建立 iPad 网络路由。本次网络为当前运行环境真实 HTTP 环回传输；不代表 iPad Safari、家庭 WiFi、蜂窝数据或真实广域网延迟。
+During the original run, the visible remote Mac execution device was offline and no iPad execution endpoint was available. Chat permissions could not establish an iPad network route. Transfers used real HTTP loopback in the execution environment; they do not represent iPad Safari, home WiFi, cellular data, or real wide-area latency.
 
-要实测 iPad，必须在设备浏览器或应用中发起测量，或让在线计算设备通过 iPad 的网络连接运行，再单独记录结果。此报告不声称已经执行。
+An iPad test must originate in a browser or application on that device, or on an online computing device connected through the iPad's network, with separately collected results. No such test is claimed here.
 
-使用内存 SQLite；不包含进程启动、建表、热缓存预填充、闲置存储、电费、GPU、HTTP 头、TCP/TLS 或重传开销。Python 参考实现的指纹计算成本较高，优化计算内核后节省比例可能下降。
+The experiment uses in-memory SQLite and excludes process startup, table creation, warm-cache preparation, idle storage, electricity, GPU use, HTTP headers, TCP/TLS, and retransmissions. Fingerprinting is relatively expensive in this Python reference implementation; optimizing the computation kernel could reduce the savings percentage.
 
-重现命令：`python3 experiments/project_under10k/run.py`。本目录包含冻结输入、文件哈希、所有原始样本、执行脚本和 CLI 验证结果。
+Reproduce with `python3 experiments/project_under10k/run.py`. This directory contains frozen input, file hashes, all raw samples, the execution script, and CLI validation results.

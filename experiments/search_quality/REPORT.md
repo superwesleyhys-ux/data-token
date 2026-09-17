@@ -1,44 +1,47 @@
-# 本地搜索测试结果
+# Local search test results
 
-结论：程序可运行并减少返回上下文，但本次质量检查未通过完整搜索替代验收。
+The program runs and reduces returned context, but this quality check did not pass acceptance as a complete replacement for search. These are historical measurements from before the English translation.
 
-## 回归与异常
+## Regression tests and exceptions
 
-32 项测试全部通过。测试前复现了缓存文本字段类型损坏导致 AttributeError，以及不支持的网页编码导致 LookupError 中断搜索；现已修复，并补充畸形 HTTP 响应回退测试。原始异常记录见 reproduced_errors.json，完整回归日志见 tests.txt。
+All 32 tests passed. Before fixes, a corrupted cached-text field caused an AttributeError, and an unsupported page encoding caused a LookupError that interrupted search. Both were fixed, with an additional malformed-HTTP fallback test. Original exceptions are recorded in reproduced_errors.json; the complete regression log is in tests.txt.
 
-## 命中质量
+## Retrieval quality
 
-对当前项目人工指定 15 条查询，每条重复 5 次，共执行 75 次。每次最多返回 4 个片段、正文共 2400 字符。此小样本不是独立语料上的通用准确率。
+Fifteen manually specified queries were each repeated 5 times, for 75 runs. Each returned at most 4 snippets with a combined 2,400-character text budget. This small sample is not a general accuracy measurement on an independent corpus.
 
-| 查询类型 | 样本数 | 找到目标文件 | 返回指定关键代码 |
+| Query type | Samples | Target file found | Required code returned |
 | --- | ---: | ---: | ---: |
-| 函数名或类名 | 5 | 5/5 | 3/5 |
-| 英文功能描述 | 5 | 5/5 | 3/5 |
-| 中文功能描述 | 5 | 0/5 | 0/5 |
+| Function or class name | 5 | 5/5 | 3/5 |
+| English feature description | 5 | 5/5 | 3/5 |
+| Chinese feature description | 5 | 0/5 | 0/5 |
 
-“返回指定关键代码”检查预先标注的代码字符串是否出现在对应文件的片段里。它比仅命中文件严格，但不是人工判断完整答案正确性的代替。每条查询的标签、返回片段和判断都保存在 results.json。
+The required-code check tests whether a preselected code string appears in a snippet from the expected file. It is stricter than finding the file but does not replace human evaluation of answer correctness. Query labels, returned snippets, and judgments are stored in results.json.
 
-发现两项限制：固定长度片段可能丢掉同一函数内需要的代码；纯中文词法查询无法可靠映射英文标识符，并可能被示例文本里的中文词误导。当前不应把它作为唯一检索来源。
+Two limitations were found: fixed-length snippets can omit required code from the same function, and Chinese-only lexical queries cannot reliably map to English identifiers and can be distracted by Chinese sample text. The current implementation should not be the sole retrieval source.
 
-## 上下文与耗时
+## Context size and timing
 
-全量文本及路径包装：17,299 token。15 条查询返回的完整 JSON 中位数：1,052 token，相对全文约减少 93.92%。分词器为 o200k_base，包含返回元数据。
+The complete text with path wrappers contained 17,299 tokens. The median complete JSON response across 15 queries contained 1,052 tokens, approximately 93.92% less than the full text. Counts use o200k_base and include returned metadata.
 
-单次查询 CPU 中位数约 5.87 ms。75 次本地查询在禁止联网的测试条件下成功执行，未触发网络、模型或 embedding 调用。
+Median CPU time per query was approximately 5.87 ms. All 75 local queries completed with networking prohibited, without triggering network, model, or embedding calls.
 
-该比率只描述上下文规模，不是 Codex 实际账单、任务质量或完整开发流程节省。未命中查询也可能返回很多无关片段；不能只看 token 少了多少。
+This ratio describes context size, not actual Codex billing, task quality, or end-to-end development savings. Failed queries can still return substantial irrelevant context; lower token counts alone do not establish success.
 
-## 网络测试
+## Network tests
 
-环回 HTTP 下载、HTML 脚本过滤和第二次缓存命中通过真实 HTTP 测试；第二次构造网络连接会使测试失败，因此确认缓存路径未再次请求网络。
-本次公网 Python 文档抓取失败：<urlopen error [Errno -3] Temporary failure in name resolution>。没有绕过环境网络限制。
+Actual HTTP tests passed for loopback downloads, removal of scripts from HTML, and subsequent cache hits. A second network connection would have failed the test, confirming that the cached path made no additional request.
 
-没有调用用户 iPad 或 Mac，也没有替换 Codex 内置搜索。
+Fetching public Python documentation failed with `<urlopen error [Errno -3] Temporary failure in name resolution>`. Environment network restrictions were not bypassed.
 
-## 复现
+The test did not use the user's iPad or Mac and did not replace Codex's built-in search.
+
+## Reproduce
 
 `python3 -m unittest discover -s tests -v`
 
-`python3 experiments/search_quality/run.py`（质量评估脚本需要 tiktoken；搜索程序本身不需要）
+`python3 experiments/search_quality/run.py` (the quality evaluation script requires tiktoken; the search implementation itself does not).
 
-后续需要语义或双语检索，以及根据函数边界补足上下文；随后在独立项目与实际编码任务上重新验收。
+Semantic or bilingual retrieval and context expansion along function boundaries are needed before further acceptance testing on independent projects and real coding tasks.
+
+Raw queries and result snippets preserve their original language as experimental evidence. Translating the current source changes the search corpus, so a fresh run may differ from these historical results.

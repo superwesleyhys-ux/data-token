@@ -1,21 +1,21 @@
-# 本次实测记录
+# Recorded measurements
 
-执行日期：2026-09-16。Python 3.12.14；Linux-6.18.44-x86_64-with-glibc2.39。
+Date: 2026-09-16. Python 3.12.14; Linux-6.18.44-x86_64-with-glibc2.39.
 
-同一份默认示例，128 维指纹，每种场景 7 次取中位数。网络为真实 HTTP 环回传输，源端与客户端同进程。
+These historical measurements used the original sample before the English translation, with 128 fingerprint dimensions and 7 repetitions per scenario. Values are medians. Network transfers used real HTTP loopback with source and client in the same process. The current English sample is a different workload, so new runs will not reproduce these exact timings or hashes.
 
-| 场景 | 同进程 CPU / ms | 耗时 / ms | 下载响应体 / bytes | 重算节点 | CPU 相对基线减少 |
+| Scenario | Same-process CPU / ms | Elapsed / ms | Downloaded body / bytes | Computed nodes | CPU reduction vs. baseline |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 无缓存基线 | 38.443 | 38.270 | 0 | 7 | 0.00% |
-| 首次本地填充 | 40.115 | 39.899 | 0 | 7 | -4.35% |
-| 本地缓存复用 | 0.737 | 0.642 | 0 | 0 | 98.08% |
-| HTTP 远端复用 | 3.602 | 3.504 | 16,581 | 0 | 90.63% |
-| 修改末段（不同输入） | 9.666 | 9.548 | 0 | 2 | 不比较 |
+| Uncached baseline | 38.443 | 38.270 | 0 | 7 | 0.00% |
+| Cold local fill | 40.115 | 39.899 | 0 | 7 | -4.35% |
+| Local cache reuse | 0.737 | 0.642 | 0 | 0 | 98.08% |
+| HTTP remote reuse | 3.602 | 3.504 | 16,581 | 0 | 90.63% |
+| Last paragraph edited (different input) | 9.666 | 9.548 | 0 | 2 | Not compared |
 
-源端首次生成另外消耗 **41.001 ms CPU**；按本次热缓存中位数估算，约 2 次后续复用摊平这笔 CPU 成本。
+Source priming required an additional **41.001 ms of CPU time**. Based on the measured warm-cache medians, approximately 2 subsequent reuses would amortize that initial CPU cost.
 
-这只是本次参考实现与样例的结果，不代表 LLM、GPU、ChatGPT 额度或真实 WiFi 收益。首次填充可能比无缓存更贵；负数如实保留。
+These observations apply only to this reference implementation and sample. They do not establish LLM, GPU, ChatGPT quota, or real WiFi savings. A cold fill can cost more than an uncached run; negative savings are preserved.
 
-所有相同输入的结果哈希一致；编辑后复用结果也与新输入的完整重算一致。每次运行的结果哈希、原始计量与节点轨迹在 [benchmark.local.json](benchmark.local.json)。
+All identical-input result hashes matched. Reuse after editing also matched a full recomputation of the edited input. Per-run result hashes, raw measurements, and node traces are in [benchmark.local.json](benchmark.local.json).
 
-计量不包含 HTTP/TCP/TLS 头、SSH 开销、进程启动、存储生命周期、电费或硬件成本。跨机器使用时应另行计入源端资源。
+Measurements exclude HTTP/TCP/TLS headers, SSH overhead, process startup, storage lifecycle costs, electricity, and hardware costs. Cross-machine use must account for source-side resources separately.

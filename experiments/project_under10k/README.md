@@ -1,27 +1,29 @@
-# 少于 1 万 token 的代码项目复用实验
+# Reusing computation for a code project under 10,000 tokens
 
-输入：FlowCache 的全部 6 个后端 Python 源码文件，包含文件名和 JSON 包装，共 9,640 个 o200k_base token。修改版本在 web.py 末尾添加一行合法注释，共 9,655 token。前端、说明文档和测试文件不在这份输入中。
+Input: all 6 backend Python source files from FlowCache, including filenames and JSON wrappers, totaling 9,640 o200k_base tokens. The edited version adds one valid comment at the end of web.py and contains 9,655 tokens. Frontend code, documentation, and tests are excluded.
 
-这是对实际代码项目进行字符指纹计算的实验，不是一次大模型代码生成或推理请求。所有处理均为 CPU 计算；没有调用 ChatGPT、OpenAI API 或本地 LLM。token 数仅描述输入规模。
+This experiment computes character fingerprints over a real code project. It is not a large-model code-generation or reasoning request. All processing uses CPU computation, with no ChatGPT, OpenAI API, or local LLM calls. Token counts describe input size only.
 
-## 复现
+## Reproduce
 
-在仓库根目录执行：
+Run from the repository root:
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 experiments/project_under10k/run.py
 ```
 
-冻结输入已经包含在本目录，不需要安装 tokenizer 即可复现实验。重新核对 token 数时，可安装 tiktoken，使用 `get_encoding("o200k_base").encode(text)`。原始环境使用 tiktoken 0.14.0。
+Frozen input is included in this directory, so a tokenizer is not required to rerun the experiment. To independently verify token counts, install tiktoken and use `get_encoding("o200k_base").encode(text)`. The original environment used tiktoken 0.14.0.
 
-每种场景重复 15 次，顺序使用固定随机种子打散。输入分为 6 个文件节点，加 1 个汇总节点。报告包含所有测量样本、结果哈希、节点轨迹和中位数。修改场景单独对照修改后的全量重算。
+Each scenario runs 15 times in an order shuffled with a fixed random seed. The input contains 6 file nodes and 1 aggregate node. Reports include every measurement, result hash, node trace, and median. The edited scenario is compared separately against full recomputation of the edited input.
 
-## 计量边界
+The frozen inputs and historical JSON reports retain their original bytes, including multilingual source text. Translating them would invalidate their recorded hashes and token counts. The current English documentation describes those original measurements.
 
-- 真实 HTTP 请求发生在当前执行环境的 127.0.0.1 上。没有使用用户的 iPad、Mac、家庭 WiFi 或蜂窝数据。
-- CPU 字段统计测量期间本进程全部线程，包括同进程 HTTP 服务线程；不等于能耗、费用或 GPU 算力。
-- 流量只统计已读取 HTTP 响应体，不含请求头、响应头、TCP/TLS、重传或网卡总流量。
-- 此对照使用内存 SQLite。清理缓存、热缓存预填充和服务启动不进入单次请求计量；源端首次生成成本单列。
-- 累计收益表由实测中位数估算，不是额外执行的 100 次任务。初次计算不能免除，未重复的输入也不能得到相同缓存收益。
-- iPad 当前没有连接的执行端。授权聊天使用流量，不会让服务器程序使用 iPad 的网络。iPad 真实网络测试必须由设备上的浏览器或应用主动发起，结果需另行采集。
+## Measurement boundaries
+
+- Real HTTP requests run on 127.0.0.1 in the execution environment. The original run did not use the user's iPad, Mac, home WiFi, or cellular data.
+- CPU fields cover every thread in the process during measurement, including the colocated HTTP server thread. They do not measure energy, money, or GPU capacity.
+- Network counters measure response-body bytes actually read, excluding request and response headers, TCP/TLS, retransmissions, and interface-level totals.
+- This comparison uses in-memory SQLite. Cache clearing, warm-cache preparation, and server startup are excluded from individual request measurements. Source priming is reported separately.
+- Cumulative savings tables are estimates based on measured medians, not an additional 100 executed tasks. Initial computation is still required, and unique inputs cannot receive the same cache benefit.
+- No iPad execution endpoint was connected during the original run. Permission to use data in a chat does not route server traffic through an iPad. Real iPad networking must be initiated by a browser or application on that device and measured separately.
