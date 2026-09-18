@@ -1,0 +1,35 @@
+name: Claimweave CI
+
+on:
+  push:
+    paths:
+      - 'claimweave-4/**'
+      - '.github/workflows/claimweave-ci.yml'
+  pull_request:
+    paths:
+      - 'claimweave-4/**'
+      - '.github/workflows/claimweave-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: claimweave-4
+    strategy:
+      matrix:
+        node: [20, 22]
+    env:
+      SKIP_ENV_VALIDATION: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: claimweave-4/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build
