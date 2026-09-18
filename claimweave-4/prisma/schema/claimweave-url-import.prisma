@@ -1,0 +1,84 @@
+// @polsia:user-owned — project-scoped URL intake batches and row statuses.
+
+model ClaimweaveUrlImportBatch {
+  id           String                     @id @default(cuid())
+  projectId    String
+  createdAt    DateTime                   @default(now())
+  totalRows    Int
+  acceptedRows Int
+  errorRows    Int
+  status       String                     @default("queued")
+  rows         ClaimweaveUrlImportRow[]
+  entries      ClaimweaveUrlImportEntry[]
+
+  @@index([projectId, createdAt])
+}
+
+model ClaimweaveUrlImportRow {
+  id           String                   @id @default(cuid())
+  batchId      String
+  projectId    String
+  rowNumber    Int
+  rawValue     String
+  normalizedUrl String?
+  status       String
+  error        String?
+  processingStartedAt DateTime?
+  completedAt DateTime?
+  failedAt DateTime?
+  batch        ClaimweaveUrlImportBatch @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  importedDocument ClaimweaveImportedDocument?
+
+  @@unique([batchId, rowNumber])
+  @@index([projectId, batchId, rowNumber])
+}
+
+model ClaimweaveImportedDocument {
+  id                String                         @id @default(cuid())
+  projectId         String
+  rowId             String                         @unique
+  normalizedUrl     String
+  documentText      String?
+  normalizedContent String
+  extractedAt       DateTime
+  status            String
+  processingRoute   String
+  processingTrace   Json?
+  row               ClaimweaveUrlImportRow         @relation(fields: [rowId], references: [id], onDelete: Cascade)
+  claims            ClaimweaveImportedClaim[]
+
+  @@unique([projectId, normalizedUrl])
+  @@index([projectId, extractedAt])
+}
+
+model ClaimweaveImportedClaim {
+  id            String                    @id @default(cuid())
+  documentId    String
+  projectId     String
+  rowId         String
+  text          String
+  sourceStart   Int
+  sourceEnd     Int
+  sourceQuote   String
+  citationLinks Json
+  sourceUrl     String?
+  extractedAt   DateTime
+  document      ClaimweaveImportedDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([documentId, sourceStart])
+  @@index([projectId, rowId])
+}
+
+model ClaimweaveUrlImportEntry {
+  id            String                   @id @default(cuid())
+  projectId     String
+  batchId       String
+  rowId         String
+  normalizedUrl String
+  createdAt     DateTime                 @default(now())
+  batch         ClaimweaveUrlImportBatch @relation(fields: [batchId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, normalizedUrl])
+  @@unique([rowId])
+  @@index([projectId, createdAt])
+}

@@ -1,0 +1,14 @@
+// @polsia:user-owned — API-key records store only non-secret metadata and a hash.
+model ApiKey {
+  id              String    @id @default(cuid())
+  userId          String
+  applicationName String
+  keyHash         String    @unique
+  keyPrefix       String
+  createdAt       DateTime  @default(now())
+  revokedAt       DateTime?
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([revokedAt])
+}

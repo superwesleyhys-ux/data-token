@@ -1,0 +1,76 @@
+// @polsia:user-owned — immutable Claimweave document, claim, and evidence revisions.
+
+model ClaimweaveRevision {
+  id               String                                  @id @default(cuid())
+  projectId        String
+  ownerId          String?
+  version          Int
+  eventKind        String
+  createdAt        DateTime                                @default(now())
+  documentSnapshots ClaimweaveDocumentRevisionSnapshot[]
+  claimSnapshots   ClaimweaveClaimRevisionSnapshot[]
+  evidenceSnapshots ClaimweaveEvidenceRevisionSnapshot[]
+
+  @@unique([projectId, version])
+  @@index([projectId, createdAt])
+}
+
+model ClaimweaveDocumentRevisionSnapshot {
+  id             String            @id @default(cuid())
+  revisionId     String
+  documentId     String
+  documentKind   String
+  url            String?
+  status         String?
+  processingRoute String?
+  extractedAt    DateTime?
+  previous       Json?
+  current        Json?
+  createdAt      DateTime          @default(now())
+  revision       ClaimweaveRevision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@index([revisionId, documentId])
+  @@index([documentId, documentKind, createdAt])
+}
+
+model ClaimweaveClaimRevisionSnapshot {
+  id              String            @id @default(cuid())
+  revisionId      String
+  sourceDocumentId String
+  documentKind    String
+  identityKey     String
+  previousClaimId String?
+  currentClaimId  String?
+  sourceStart     Int
+  sourceEnd       Int
+  previous        Json?
+  current         Json?
+  createdAt       DateTime          @default(now())
+  revision        ClaimweaveRevision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@index([revisionId, sourceStart, sourceEnd])
+  @@index([sourceDocumentId, documentKind, identityKey])
+}
+
+model ClaimweaveEvidenceRevisionSnapshot {
+  id                    String            @id @default(cuid())
+  revisionId            String
+  claimId               String
+  verificationRunId     String
+  verificationResultId  String?
+  evidenceDocumentId    String?
+  passageId             String?
+  identityKey           String
+  sourceUrl             String?
+  evidenceDate          DateTime?
+  classification        String?
+  freshness             String?
+  errorState            String?
+  previous              Json?
+  current               Json?
+  createdAt             DateTime          @default(now())
+  revision              ClaimweaveRevision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@index([revisionId, claimId])
+  @@index([claimId, evidenceDocumentId, passageId, createdAt])
+}

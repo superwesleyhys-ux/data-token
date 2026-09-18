@@ -1,0 +1,87 @@
+// @polsia:user-owned — Claimweave exact extraction reuse and benchmark evidence.
+
+model ClaimweaveExtractionCacheEntry {
+  id                    String   @id @default(cuid())
+  cacheKey              String   @unique
+  sourceIdentity        String
+  inputDigest           String
+  evidenceDigest        String
+  taskVersion           String
+  model                 String
+  modelVersion          String
+  promptVersion         String
+  schemaVersion         String
+  generationParameters  Json
+  tenantScope           String
+  permissionScope       String
+  sourceUrl             String?
+  sourceContentLength   Int
+  normalizedResult      Json
+  evidenceFreshUntil    DateTime?
+  createdAt             DateTime @default(now())
+  lastHitAt             DateTime?
+  hitCount              Int      @default(0)
+
+  @@index([sourceIdentity, tenantScope, createdAt])
+  @@index([inputDigest, tenantScope, permissionScope])
+}
+
+model ClaimweaveBenchmarkRun {
+  id                    String   @id @default(cuid())
+  codeRevision          String
+  configHash            String
+  datasetId             String
+  datasetHash           String?
+  status                String
+  authorizationRef      String?
+  estimatedAttempts     Int
+  providerAttemptCeiling Int
+  attemptsUsed          Int      @default(0)
+  result                Json?
+  createdAt             DateTime @default(now())
+  completedAt            DateTime?
+
+  @@index([createdAt])
+  @@index([status, createdAt])
+}
+
+model ClaimweaveExtractionTrace {
+  id                     String   @id @default(cuid())
+  benchmarkRunId         String?
+  requestSequenceId      String?
+  caseClass              String
+  variant                String
+  cacheKey               String
+  tenantScope            String
+  permissionScope        String
+  cacheDecision          String
+  rejectionReason        String?
+  modelCallMade          Boolean
+  providerRequestId      String?
+  providerAttemptCount   Int?
+  inputTokens            Int?
+  outputTokens           Int?
+  totalTokens            Int?
+  cachedTokens           Int?
+  reasoningTokens        Int?
+  usageKnown             Boolean
+  costKnown              Boolean
+  externalCost           Float?
+  latencyMs              Int
+  retrievalCalls         Int
+  retrievalBytes         Int
+  claimCoverage          Float?
+  numbersPreserved       Float?
+  negationPreserved      Float?
+  qualifiersPreserved    Float?
+  citationSupport        Float?
+  sourceSpanCorrectness  Float?
+  staleEvidenceViolations Int
+  counters               Json
+  configHash             String?
+  createdAt              DateTime @default(now())
+
+  @@index([benchmarkRunId, createdAt])
+  @@index([requestSequenceId, createdAt])
+  @@index([tenantScope, createdAt])
+}
