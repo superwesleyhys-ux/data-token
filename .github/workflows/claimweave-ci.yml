@@ -9,29 +9,77 @@ on:
     paths:
       - 'claimweave-4/**'
       - '.github/workflows/claimweave-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
     defaults:
       run:
         working-directory: claimweave-4
-    strategy:
-      matrix:
-        node: [20, 22]
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: claimweave
+          POSTGRES_PASSWORD: claimweave
+          POSTGRES_DB: claimweave
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U claimweave -d claimweave"
+          --health-interval 5s --health-timeout 5s --health-retries 20
     env:
-      SKIP_ENV_VALIDATION: '1'
+      DATABASE_URL: postgresql://claimweave:claimweave@127.0.0.1:5432/claimweave?schema=public
+      BETTER_AUTH_SECRET: disposable-ci-auth-secret-not-a-production-credential
+      BETTER_AUTH_URL: http://127.0.0.1:3000
+      BETTER_AUTH_TRUSTED_ORIGINS: http://127.0.0.1:3000
+      NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
+      NEXT_TELEMETRY_DISABLED: '1'
+      # No real provider keys: model calls must not run in this pipeline.
+      POLSIA_AI_BASE_URL: http://127.0.0.1:9/v1
+      CLAIMWEAVE_SMOKE_URL: http://127.0.0.1:3000
+      CLAIMWEAVE_ALLOW_LOCAL_SMOKE: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: npm
           cache-dependency-path: claimweave-4/package-lock.json
-      - run: npm ci
-      - name: Biome check (formatting only; non-blocking for runtime validation)
-        continue-on-error: true
+      - name: Install locked dependencies and generate Prisma client
+        run: npm ci
+      - name: Lint without weakening existing rules
         run: npm run lint
-      - run: npm run typecheck
-      - run: npm run test
-      - run: npm run build
+      - name: Generate route types and typecheck
+        run: npm run typecheck
+      - name: Run application unit tests
+        run: npm test
+      - name: Initialize disposable PostgreSQL schema
+        run: npm run db:push:local
+      - name: Build production application
+        run: npm run build
+      - name: Smoke-test the real HTTP server without model calls
+        run: |
+          npm start -- --hostname 127.0.0.1 > "$RUNNER_TEMP/claimweave-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          node scripts/smoke-local.mjs
+      - name: Preserve server logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claimweave-server-node-${{ matrix.node }}
+          path: ${{ runner.temp }}/claimweave-server.log
+          if-no-files-found: ignore
+          retention-days: 7

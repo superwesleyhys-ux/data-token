@@ -13,7 +13,7 @@
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "format": "biome format --write",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test --config=tests/e2e/playwright.config.ts",
     "test:postgres": "node --test tests/integration/prisma-deployment.test.mjs",
@@ -21,7 +21,10 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "setup:local": "node scripts/setup-local.mjs",
+    "db:push:local": "node scripts/db-push-local.mjs",
+    "dev:local": "next dev --hostname 127.0.0.1"
   },
   "dependencies": {
     "@hookform/resolvers": "5.4.0",
