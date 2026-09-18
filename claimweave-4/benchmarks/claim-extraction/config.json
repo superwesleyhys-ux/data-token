@@ -1,0 +1,59 @@
+{
+  "benchmarkSchemaVersion": "claimweave-extraction-benchmark-v1",
+  "frozenSpecVersion": "claimweave-frozen-spec-v2",
+  "recordedRevision": "1bb0a69",
+  "model": "gpt-4o-mini",
+  "task": "claim-extraction",
+  "taskVersion": "claim-extraction-task-v1",
+  "promptVersion": "claim-extraction-prompt-v1",
+  "schemaVersionForOutput": "claim-extraction-output-v1",
+  "effectiveOutputLimit": 10,
+  "hashAlgorithm": "sha256",
+  "sequenceManifestPath": "benchmarks/claim-extraction/request-sequence.json",
+  "generationParameters": {
+    "temperature": 0,
+    "responseFormat": "json_object",
+    "maxClaims": 10
+  },
+  "dataset": {
+    "id": "claimweave-heldout-v1",
+    "sha256": null,
+    "pathEnv": "CLAIMWEAVE_BENCHMARK_DATASET_PATH",
+    "documentCount": 0,
+    "status": "missing"
+  },
+  "requestSequence": {
+    "caseClasses": [
+      "cold",
+      "exact-repeat",
+      "localized-edit",
+      "number-or-negation-change",
+      "expired-or-changed-evidence"
+    ],
+    "variants": ["baseline", "treatment"],
+    "pilotDocumentCount": 5,
+    "minimumIndependentDocuments": 30,
+    "requestsPerIndependentDocument": 5
+  },
+  "providerCachingConditions": "unknown-until-authorized-provider-trace-seam-is-available",
+  "qualityCriteria": {
+    "goldAnnotations": "required",
+    "sourceSpanCorrectness": "all spans must match the requested document",
+    "citationSupport": "all URL citations must be present in the current evidence",
+    "numbersNegationQualifiers": "must be preserved against fixed annotations",
+    "qualityLayers": "score extraction-stage and whole-verification-pipeline evidence separately",
+    "matchedPairs": "every complete sequence needs baseline and treatment observations for every declared case",
+    "missingGoldSetStatus": "unknown-blocked"
+  },
+  "authorization": {
+    "authorizationReferenceEnv": "CLAIMWEAVE_BENCHMARK_AUTHORIZATION_REF",
+    "financialCapEnv": "CLAIMWEAVE_BENCHMARK_FINANCIAL_CAP",
+    "modelPermissionEnv": "CLAIMWEAVE_BENCHMARK_MODEL_PERMISSION",
+    "providerObservabilityEnv": "CLAIMWEAVE_BENCHMARK_PROVIDER_OBSERVABILITY",
+    "allowPaidCallsEnv": "CLAIMWEAVE_BENCHMARK_ALLOW_PAID_CALLS",
+    "releaseContract": "external-supervising-release-record-v1 (not present in this workspace)",
+    "maxProviderAttempts": 96,
+    "retriesCountAgainstCeiling": true,
+    "autoTopUp": false
+  }
+}

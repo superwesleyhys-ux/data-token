@@ -1,0 +1,107 @@
+{
+  "reportVersion": "claimweave-acceptance-gate-v2",
+  "status": "BLOCKED",
+  "releaseStatus": "blocked",
+  "frozenSpecIdentity": "ff885ee52ed3fd172fb9bf782399abc48336873a304ef8cfd33c1e3fc07f0de4",
+  "configHash": "f51143094db4404d2ef5bb87d356c6b2f892af765ab8c755deceb5c31e2a9900",
+  "sequenceHash": "661a358c30532a8dac6ebca8bf0ba3904e60088164b4a3b9a8d70a52c2f70ce8",
+  "artifactInventory": [
+    {
+      "id": "wi_2799760",
+      "source": "workspace audit",
+      "timestampOrVersion": null,
+      "correctnessCheck": "not inspectable",
+      "reusable": false,
+      "status": "BLOCKED"
+    },
+    {
+      "id": "wi_2804609 / CW-SUP-01",
+      "source": "workspace audit",
+      "timestampOrVersion": null,
+      "correctnessCheck": "not inspectable",
+      "reusable": false,
+      "status": "BLOCKED"
+    },
+    {
+      "id": "wi_2804612 / CW-SUP-02",
+      "source": "workspace audit",
+      "timestampOrVersion": null,
+      "correctnessCheck": "not inspectable",
+      "reusable": false,
+      "status": "BLOCKED"
+    },
+    {
+      "id": "offline-v1",
+      "source": "checked-in fixture evidence",
+      "timestampOrVersion": "claimweave-exact-reuse-v1",
+      "correctnessCheck": "PASS; hashes, spans, provenance, and zero-call scenarios verified",
+      "reusable": true,
+      "status": "PASS",
+      "limitation": "provider-free fixture evidence only; not a live savings result"
+    }
+  ],
+  "workload": {
+    "declaredCases": [
+      "cold",
+      "exact-repeat",
+      "localized-edit",
+      "number-or-negation-change",
+      "expired-or-changed-evidence"
+    ],
+    "pairedBaselineTreatmentRequired": true,
+    "heldOutDocuments": 0,
+    "independentAnnotations": "missing for held-out workload",
+    "sampleLimitations": "one synthetic offline source family; no live measured result"
+  },
+  "requestAccounting": {
+    "providerCallsMade": 0,
+    "providerAttemptsObserved": null,
+    "costUsd": null,
+    "latency": "not measured for a live provider run",
+    "tokenReduction": null,
+    "usageStatus": "unknown"
+  },
+  "quality": {
+    "extractionStage": { "status": "INCONCLUSIVE", "reason": "held-out annotations missing" },
+    "wholeVerificationPipeline": { "status": "INCONCLUSIVE", "reason": "no verification run" }
+  },
+  "gates": [
+    {
+      "id": "prerequisite_artifacts",
+      "status": "BLOCKED",
+      "nextAction": "Inspect CW-SUP-01 and CW-SUP-02 artifacts and record passing correctness checks."
+    },
+    {
+      "id": "consolidated_owner_request_and_cost_cap",
+      "status": "BLOCKED",
+      "nextAction": "Record one current consolidated owner request with a positive cost cap."
+    },
+    {
+      "id": "supervising_release",
+      "status": "BLOCKED",
+      "nextAction": "Obtain the external supervising release record required by the release contract."
+    },
+    {
+      "id": "metadata_bearing_ai_seam",
+      "status": "BLOCKED",
+      "nextAction": "Provide a framework-owned AI result seam with request, attempt, usage, and cost metadata."
+    },
+    {
+      "id": "held_out_evidence",
+      "status": "BLOCKED",
+      "nextAction": "Supply inspectable held-out documents, source hashes, and independent annotations."
+    },
+    {
+      "id": "matched_workload",
+      "status": "INCONCLUSIVE",
+      "nextAction": "Complete paired baseline and treatment observations for every declared workload case."
+    },
+    {
+      "id": "offline_fixture",
+      "status": "PASS",
+      "nextAction": "Retain the provider-free fixture verification output."
+    }
+  ],
+  "reasonNoProviderCall": "No provider call was made because the current evidence does not include prerequisite artifacts, a consolidated owner request and cost cap, an explicit supervising release, or the required metadata-bearing AI seam.",
+  "nextAction": "Obtain the blocked prerequisite artifacts, owner request/cap, external release record, and framework metadata seam before requesting execution."
+}
