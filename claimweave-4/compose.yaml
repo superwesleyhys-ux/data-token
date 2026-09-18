@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: claimweave
+      POSTGRES_PASSWORD: claimweave
+      POSTGRES_DB: claimweave
+    ports:
+      - "5432:5432"
+    volumes:
+      - claimweave-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U claimweave -d claimweave"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  claimweave-postgres:

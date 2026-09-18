@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "claimweave-extraction-sequence-v1",
+  "frozenSpecVersion": "claimweave-frozen-spec-v2",
+  "datasetId": "claimweave-heldout-v1",
+  "documents": [],
+  "sourceSequenceHashes": [],
+  "workload": [
+    {
+      "caseClass": "cold",
+      "stage": "extraction",
+      "baselineSequence": "one uncached extraction request",
+      "treatmentSequence": "one reuse-enabled extraction request with no prior cache entry",
+      "paired": true,
+      "requiresIndependentAnnotation": true
+    },
+    {
+      "caseClass": "exact-repeat",
+      "stage": "extraction",
+      "baselineSequence": "repeat the same source and evidence identity without reuse",
+      "treatmentSequence": "repeat the same source and evidence identity with reuse enabled",
+      "paired": true,
+      "requiresIndependentAnnotation": true
+    },
+    {
+      "caseClass": "localized-edit",
+      "stage": "extraction",
+      "baselineSequence": "extract the localized source edit without reuse",
+      "treatmentSequence": "extract the localized source edit after the original result exists",
+      "paired": true,
+      "requiresIndependentAnnotation": true
+    },
+    {
+      "caseClass": "number-or-negation-change",
+      "stage": "extraction",
+      "baselineSequence": "extract the numeric or negation source change without reuse",
+      "treatmentSequence": "extract the numeric or negation source change after the original result exists",
+      "paired": true,
+      "requiresIndependentAnnotation": true
+    },
+    {
+      "caseClass": "expired-or-changed-evidence",
+      "stage": "extraction",
+      "baselineSequence": "extract with expired or changed evidence identity without reuse",
+      "treatmentSequence": "reject stale or changed evidence before any cache hit",
+      "paired": true,
+      "requiresIndependentAnnotation": true
+    }
+  ],
+  "documentShape": {
+    "id": "opaque-heldout-document-id",
+    "goldAnnotationId": "opaque-gold-annotation-id",
+    "cases": {
+      "cold": "{ sourceType, text | url, evidenceFreshUntil }",
+      "exact-repeat": "same source content and evidence identity as cold",
+      "localized-edit": "deterministic held-out localized edit",
+      "number-or-negation-change": "deterministic held-out number or negation change",
+      "expired-or-changed-evidence": "same input with expired policy or changed evidence digest"
+    }
+  },
+  "sampleLimitations": [
+    "held-out document rows and per-case source hashes are absent",
+    "the checked-in offline fixture contains one synthetic source family and is not a live savings result",
+    "the requested independent sample cannot be completed from this workspace"
+  ],
+  "status": "blocked-until-held-out-fixtures-and-gold-annotations-are-supplied"
+}

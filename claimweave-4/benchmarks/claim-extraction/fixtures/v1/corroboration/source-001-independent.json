@@ -1,0 +1,19 @@
+{
+  "corroborationId": "corroboration-001",
+  "sourceId": "source-001",
+  "independence": "independently-authored-synthetic-record",
+  "facts": [
+    {
+      "factId": "corroboration-001-fact-1",
+      "text": "A separate clinic association ledger records 42 participating sites during the first quarter of 2026.",
+      "supportsClaimId": "annotation-001-claim-1",
+      "publishedAt": "2026-04-02"
+    },
+    {
+      "factId": "corroboration-001-fact-2",
+      "text": "The association ledger does not establish that all participating sites finished onboarding.",
+      "supportsClaimId": "annotation-001-claim-2",
+      "publishedAt": "2026-04-02"
+    }
+  ]
+}

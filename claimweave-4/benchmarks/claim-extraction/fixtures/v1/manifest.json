@@ -1,0 +1,125 @@
+{
+  "fixtureSetId": "claimweave-exact-reuse-v1",
+  "schemaVersion": "claimweave-offline-fixture-v1",
+  "sourceFiles": [
+    {
+      "sourceId": "source-001",
+      "path": "sources/source-001.txt",
+      "annotationPath": "annotations/source-001.json",
+      "corroborationPath": "corroboration/source-001-independent.json",
+      "sha256": "3178375b82ff845c20b05fe8a5fe62a3261bb075b93b19b6a77c3cd0138a0fac",
+      "annotationSha256": "4d004c054dee77983f0326b1de1b2fa758e15d3edb07ca46a4ccadfae7c7f9f9",
+      "corroborationSha256": "6bda87fd89d3425ffb8036c374556aaaeac650a399aef76ca4959a381ede4e1a"
+    },
+    {
+      "sourceId": "source-001-localized-edit",
+      "path": "sources/source-001-localized-edit.txt",
+      "annotationPath": "annotations/source-001.json",
+      "corroborationPath": "corroboration/source-001-independent.json",
+      "sha256": "4238917f1675ffe4b0babcc58891dc8fd2d48b4b1ef32c6dfdbe4a44d0715fcc",
+      "annotationSha256": "4d004c054dee77983f0326b1de1b2fa758e15d3edb07ca46a4ccadfae7c7f9f9",
+      "corroborationSha256": "6bda87fd89d3425ffb8036c374556aaaeac650a399aef76ca4959a381ede4e1a"
+    },
+    {
+      "sourceId": "source-001-number-negation-date-change",
+      "path": "sources/source-001-number-negation-date-change.txt",
+      "annotationPath": "annotations/source-001.json",
+      "corroborationPath": "corroboration/source-001-independent.json",
+      "sha256": "23cc67a0cdbb916438e562c5c7f5e7264342779f27b73011c264cd69b3ed31d5",
+      "annotationSha256": "4d004c054dee77983f0326b1de1b2fa758e15d3edb07ca46a4ccadfae7c7f9f9",
+      "corroborationSha256": "6bda87fd89d3425ffb8036c374556aaaeac650a399aef76ca4959a381ede4e1a"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "cold-start",
+      "sourceId": "source-001",
+      "reuse": "enabled",
+      "expectedSourceMarkers": [
+        "42 clinics",
+        "does not",
+        "may",
+        "up to",
+        "June 30, 2026",
+        "March 15, 2026"
+      ],
+      "expectedDecision": "miss",
+      "expectedProviderAttempts": 1
+    },
+    {
+      "id": "exact-repeat",
+      "sourceId": "source-001",
+      "reuse": "enabled",
+      "expectedDecision": "hit",
+      "expectedProviderAttempts": 0
+    },
+    {
+      "id": "localized-edit",
+      "sourceId": "source-001-localized-edit",
+      "reuse": "enabled",
+      "expectedSourceMarkers": ["published on March 15, 2026."],
+      "expectedDecision": "rejected",
+      "expectedReason": "content_mismatch",
+      "expectedProviderAttempts": 1
+    },
+    {
+      "id": "numeric-negation-date-change",
+      "sourceId": "source-001-number-negation-date-change",
+      "reuse": "enabled",
+      "expectedSourceMarkers": [
+        "48 clinics",
+        "does claim",
+        "72 clinics",
+        "July 31, 2026",
+        "April 20, 2026"
+      ],
+      "expectedDecision": "rejected",
+      "expectedReason": "content_mismatch",
+      "expectedProviderAttempts": 1
+    },
+    {
+      "id": "expiry",
+      "sourceId": "source-001",
+      "reuse": "enabled",
+      "expectedSourceMarkers": [
+        "42 clinics",
+        "does not",
+        "may",
+        "up to",
+        "June 30, 2026",
+        "March 15, 2026"
+      ],
+      "freshUntil": "2026-01-01T00:00:00.000Z",
+      "now": "2026-09-18T00:00:00.000Z",
+      "expectedDecision": "rejected",
+      "expectedReason": "freshness_mismatch",
+      "expectedProviderAttempts": 1
+    },
+    {
+      "id": "permission-model-prompt-changes",
+      "sourceId": "source-001",
+      "reuse": "enabled",
+      "expectedSourceMarkers": [
+        "42 clinics",
+        "does not",
+        "may",
+        "up to",
+        "June 30, 2026",
+        "March 15, 2026"
+      ],
+      "policyChanges": [
+        { "name": "permission", "expectedReason": "tenant_permission_mismatch" },
+        { "name": "model", "expectedReason": "model_mismatch" },
+        { "name": "prompt", "expectedReason": "prompt_schema_mismatch" }
+      ],
+      "expectedDecision": "rejected",
+      "expectedProviderAttempts": 3
+    }
+  ],
+  "provider": {
+    "callsMade": 0,
+    "attemptsObserved": null,
+    "usage": "unknown-until-framework-metadata-seam",
+    "costUsd": null
+  }
+}

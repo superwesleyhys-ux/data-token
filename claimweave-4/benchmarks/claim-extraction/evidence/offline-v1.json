@@ -1,0 +1,68 @@
+{
+  "reportVersion": "claimweave-offline-report-v1",
+  "status": "offline_ready",
+  "command": "node benchmarks/claim-extraction/run.mjs --offline",
+  "configHash": "f51143094db4404d2ef5bb87d356c6b2f892af765ab8c755deceb5c31e2a9900",
+  "sequenceHash": "661a358c30532a8dac6ebca8bf0ba3904e60088164b4a3b9a8d70a52c2f70ce8",
+  "frozenSpecIdentity": "ff885ee52ed3fd172fb9bf782399abc48336873a304ef8cfd33c1e3fc07f0de4",
+  "fixtureSetId": "claimweave-exact-reuse-v1",
+  "sourceHashes": {
+    "source-001": "3178375b82ff845c20b05fe8a5fe62a3261bb075b93b19b6a77c3cd0138a0fac",
+    "source-001-localized-edit": "4238917f1675ffe4b0babcc58891dc8fd2d48b4b1ef32c6dfdbe4a44d0715fcc",
+    "source-001-number-negation-date-change": "23cc67a0cdbb916438e562c5c7f5e7264342779f27b73011c264cd69b3ed31d5"
+  },
+  "annotationSha256": "4d004c054dee77983f0326b1de1b2fa758e15d3edb07ca46a4ccadfae7c7f9f9",
+  "corroborationSha256": "6bda87fd89d3425ffb8036c374556aaaeac650a399aef76ca4959a381ede4e1a",
+  "annotationProvenance": {
+    "sourceId": "source-001",
+    "annotationId": "annotation-001",
+    "corroborationId": "corroboration-001",
+    "independent": true
+  },
+  "scenarios": [
+    { "id": "cold-start", "decision": "miss", "reason": null, "providerAttempts": 1 },
+    { "id": "exact-repeat", "decision": "hit", "reason": null, "providerAttempts": 0 },
+    {
+      "id": "localized-edit",
+      "decision": "rejected",
+      "reason": "content_mismatch",
+      "providerAttempts": 1
+    },
+    {
+      "id": "numeric-negation-date-change",
+      "decision": "rejected",
+      "reason": "content_mismatch",
+      "providerAttempts": 1
+    },
+    {
+      "id": "expiry",
+      "decision": "rejected",
+      "reason": "freshness_mismatch",
+      "providerAttempts": 1
+    },
+    {
+      "id": "permission-model-prompt-changes",
+      "decision": "rejected",
+      "policyReasons": ["tenant_permission_mismatch", "model_mismatch", "prompt_schema_mismatch"],
+      "providerAttempts": 3
+    }
+  ],
+  "offlineProviderCallsMade": 0,
+  "providerAttemptsObserved": null,
+  "usageStatus": "unknown-until-framework-metadata-seam",
+  "costUsd": null,
+  "pilotEstimate": {
+    "logicalRequests": 10,
+    "providerAttempts": "10 + r",
+    "remainingBudget": "unknown-blocked-without-authorized-ledger"
+  },
+  "blockers": [
+    "owner_approval_missing_from_authorized_records",
+    "cumulative_request_spend_ledger_missing",
+    "framework_ai_client_hides_provider_request_id_usage_and_attempts",
+    "held_out_dataset_and_gold_annotations_not_supplied",
+    "cw_sup_01_and_cw_sup_02_artifacts_not_inspectable",
+    "consolidated_owner_request_and_cost_cap_missing",
+    "supervising_release_record_contract_missing"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "annotationId": "annotation-001",
+  "sourceId": "source-001",
+  "claims": [
+    {
+      "claimId": "annotation-001-claim-1",
+      "text": "42 clinics adopted the workflow in Q1.",
+      "quote": "42 clinics adopted the workflow in Q1.",
+      "start": 39,
+      "end": 77,
+      "numbers": ["42"],
+      "negated": false,
+      "qualifiers": [],
+      "dates": ["2026", "Q1"]
+    },
+    {
+      "claimId": "annotation-001-claim-2",
+      "text": "The team does not claim every clinic completed onboarding.",
+      "quote": "The team does not claim every clinic completed onboarding.",
+      "start": 78,
+      "end": 136,
+      "numbers": [],
+      "negated": true,
+      "qualifiers": [],
+      "dates": []
+    },
+    {
+      "claimId": "annotation-001-claim-3",
+      "text": "Adoption may reach up to 60 clinics by June 30, 2026, if the pilot continues.",
+      "quote": "Adoption may reach up to 60 clinics by June 30, 2026, if the pilot continues.",
+      "start": 137,
+      "end": 214,
+      "numbers": ["60", "30", "2026"],
+      "negated": false,
+      "qualifiers": ["may", "up to"],
+      "dates": ["June 30, 2026"]
+    },
+    {
+      "claimId": "annotation-001-claim-4",
+      "text": "The report was dated March 15, 2026.",
+      "quote": "The report was dated March 15, 2026.",
+      "start": 215,
+      "end": 251,
+      "numbers": ["15", "2026"],
+      "negated": false,
+      "qualifiers": [],
+      "dates": ["March 15, 2026"]
+    }
+  ]
+}
