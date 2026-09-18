@@ -8,8 +8,8 @@ import {
   ClaimReviewResult,
   ClaimsExport,
   ClaimsList,
-  parseClaimsQuery,
   parseClaimsPagination,
+  parseClaimsQuery,
 } from '@/lib/contracts/claims';
 import { traceForProcessingRoute } from '@/lib/contracts/local-first';
 
@@ -371,7 +371,12 @@ describe('claim contracts', () => {
     expect(
       ClaimsExport.safeParse({
         ...urlDocument,
-        claims: [{ ...exportClaim, citationTargets: [{ ...fallbackTarget, url: 'https://example.com/other' }] }],
+        claims: [
+          {
+            ...exportClaim,
+            citationTargets: [{ ...fallbackTarget, url: 'https://example.com/other' }],
+          },
+        ],
       }).success,
     ).toBe(false);
     expect(
@@ -413,7 +418,9 @@ describe('claim contracts', () => {
         status: 'rejected',
       }).success,
     ).toBe(true);
-    expect(ClaimBulkReviewInput.safeParse({ claimIds: [], status: 'approved' }).success).toBe(false);
+    expect(ClaimBulkReviewInput.safeParse({ claimIds: [], status: 'approved' }).success).toBe(
+      false,
+    );
     expect(
       ClaimBulkReviewInput.safeParse({
         claimIds: ['claim-1', 'claim-1'],

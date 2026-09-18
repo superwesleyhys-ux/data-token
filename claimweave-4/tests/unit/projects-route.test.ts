@@ -42,9 +42,9 @@ vi.mock('@/lib/business/journey', () => ({
   recordFirstProjectStarted: vi.fn(),
 }));
 
-import { POST as createProject } from '@/app/api/projects/route';
-import { GET as readProject } from '@/app/api/projects/[projectId]/route';
 import { POST as processProject } from '@/app/api/projects/[projectId]/process/route';
+import { GET as readProject } from '@/app/api/projects/[projectId]/route';
+import { POST as createProject } from '@/app/api/projects/route';
 
 const user = { id: 'user-1' };
 
@@ -60,7 +60,11 @@ function params(projectId = 'project-1') {
   return { params: Promise.resolve({ projectId }) };
 }
 
-const queued = { projectId: 'project-1', sourceType: 'text' as const, status: 'processing' as const };
+const queued = {
+  projectId: 'project-1',
+  sourceType: 'text' as const,
+  status: 'processing' as const,
+};
 const complete = {
   projectId: 'project-1',
   sourceType: 'text' as const,
@@ -79,7 +83,9 @@ describe('POST /api/projects', () => {
   it('denies anonymous creation before parsing or creating a project', async () => {
     requireAuth.mockRejectedValue(Response.json({ error: 'Unauthorized' }, { status: 401 }));
 
-    const response = await createProject(request({ text: 'This text is long enough to pass validation.' }));
+    const response = await createProject(
+      request({ text: 'This text is long enough to pass validation.' }),
+    );
 
     expect(response.status).toBe(401);
     expect(createQueuedProject).not.toHaveBeenCalled();

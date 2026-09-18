@@ -217,7 +217,10 @@ test('returns server-backed grounded citations and denies anonymous or foreign a
     const emptyProjectId = await seedEmptyProject(ownerEmail);
     const foreignProject = await seedGroundedProject(otherEmail);
     const ownerSecret = await createKeyThroughSettings(page, `Grounded answers ${suffix}`);
-    const otherSecret = await createKeyThroughSettings(otherPage, `Grounded answers other ${suffix}`);
+    const otherSecret = await createKeyThroughSettings(
+      otherPage,
+      `Grounded answers other ${suffix}`,
+    );
     const response = await page.request.post(
       `/api/projects/${ownerProject.projectId}/grounded-answer`,
       { data: { question: 'What does the evidence support?' } },

@@ -126,10 +126,7 @@ describe('protected evidence verification routes', () => {
     }
     expect(updateMinimumSupportingSources).not.toHaveBeenCalled();
 
-    const response = await PATCH(
-      request({ minimumSupportingSources: 2 }, 'PATCH'),
-      params(),
-    );
+    const response = await PATCH(request({ minimumSupportingSources: 2 }, 'PATCH'), params());
     expect(response.status).toBe(200);
     await expect(response.json()).resolves.toEqual({ minimumSupportingSources: 2 });
     expect(updateMinimumSupportingSources).toHaveBeenCalledWith('project-1', 'owner-1', 2);
@@ -138,10 +135,7 @@ describe('protected evidence verification routes', () => {
   it('returns 401 before reading or updating an anonymous policy request', async () => {
     requireAuth.mockRejectedValue(Response.json({ error: 'Unauthorized' }, { status: 401 }));
 
-    const response = await PATCH(
-      request({ minimumSupportingSources: 2 }, 'PATCH'),
-      params(),
-    );
+    const response = await PATCH(request({ minimumSupportingSources: 2 }, 'PATCH'), params());
 
     expect(response.status).toBe(401);
     expect(updateMinimumSupportingSources).not.toHaveBeenCalled();
@@ -153,10 +147,7 @@ describe('protected evidence verification routes', () => {
       new EvidenceVerificationError('Project not found.', 404),
     );
 
-    const response = await PATCH(
-      request({ minimumSupportingSources: 2 }, 'PATCH'),
-      params(),
-    );
+    const response = await PATCH(request({ minimumSupportingSources: 2 }, 'PATCH'), params());
 
     expect(response.status).toBe(404);
   });

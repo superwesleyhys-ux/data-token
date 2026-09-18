@@ -36,13 +36,23 @@ describe('buildSourceCitationTarget', () => {
   });
 
   it.each([
-    ['missing source', { sourceText: null, sourceQuote, sourceStart: 0, sourceEnd: 1 }, 'missing-source'],
-    ['empty quote', { sourceText, sourceQuote: '   ', sourceStart: 0, sourceEnd: 1 }, 'empty-quote'],
-    ['quote not found', { sourceText, sourceQuote: 'not in the document', sourceStart: 0, sourceEnd: 19 }, 'quote-not-found'],
+    [
+      'missing source',
+      { sourceText: null, sourceQuote, sourceStart: 0, sourceEnd: 1 },
+      'missing-source',
+    ],
+    [
+      'empty quote',
+      { sourceText, sourceQuote: '   ', sourceStart: 0, sourceEnd: 1 },
+      'empty-quote',
+    ],
+    [
+      'quote not found',
+      { sourceText, sourceQuote: 'not in the document', sourceStart: 0, sourceEnd: 19 },
+      'quote-not-found',
+    ],
   ] as const)('returns a usable fallback for %s', (_label, input, reason) => {
-    expect(
-      buildSourceCitationTarget({ url: 'https://example.com/source', ...input }),
-    ).toEqual({
+    expect(buildSourceCitationTarget({ url: 'https://example.com/source', ...input })).toEqual({
       url: 'https://example.com/source',
       href: 'https://example.com/source',
       status: 'fallback',
@@ -59,9 +69,7 @@ describe('buildSourceCitationTarget', () => {
         sourceStart: sourceText.indexOf('saved source document.'),
         sourceEnd: sourceText.length,
       }).href,
-    ).toBe(
-      'https://example.com/source?tab=evidence#section-2:~:text=saved%20source%20document.',
-    );
+    ).toBe('https://example.com/source?tab=evidence#section-2:~:text=saved%20source%20document.');
   });
 
   it('preserves the original URL for unavailable and malformed targets', () => {

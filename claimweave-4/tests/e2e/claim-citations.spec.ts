@@ -30,7 +30,10 @@ function executeSql(statement: string) {
     child.on('error', reject);
     child.on('close', (code) => {
       if (code === 0) resolve();
-      else reject(new Error(errorOutput || `Citation fixture SQL exited with code ${code ?? 'unknown'}.`));
+      else
+        reject(
+          new Error(errorOutput || `Citation fixture SQL exited with code ${code ?? 'unknown'}.`),
+        );
     });
     child.stdin.end(statement);
   });
@@ -112,7 +115,9 @@ test('owner citation links preserve URLs, highlight located passages, and fall b
     await page.goto(`/projects/${project.projectId}`);
     const locatedClaim = page.locator(`#claim-${project.locatedClaimId}`);
     const staleClaim = page.locator(`#claim-${project.staleClaimId}`);
-    const locatedLink = locatedClaim.getByRole('link', { name: /Open citation and highlight passage/ });
+    const locatedLink = locatedClaim.getByRole('link', {
+      name: /Open citation and highlight passage/,
+    });
     const staleLink = staleClaim.getByRole('link', { name: /Open original citation/ });
     const locatedHref = await locatedLink.getAttribute('href');
     expect(locatedHref).toContain(`${locatedUrl}:~:text=`);

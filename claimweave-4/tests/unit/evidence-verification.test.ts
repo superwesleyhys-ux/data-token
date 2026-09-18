@@ -156,8 +156,14 @@ describe('deterministic evidence verification', () => {
       'claim-contradiction-precedence',
       'The review tool supports offline review.',
       [
-        { ...passage('support-1', 'The review tool supports offline review.'), documentId: 'doc-1' },
-        { ...passage('support-2', 'The review tool supports offline review.'), documentId: 'doc-2' },
+        {
+          ...passage('support-1', 'The review tool supports offline review.'),
+          documentId: 'doc-1',
+        },
+        {
+          ...passage('support-2', 'The review tool supports offline review.'),
+          documentId: 'doc-2',
+        },
         {
           ...passage('contradiction', 'The review tool does not support offline review.'),
           documentId: 'doc-3',
@@ -218,7 +224,10 @@ describe('deterministic evidence verification', () => {
       noIndependentEvidence: 0,
     });
     expect(
-      summarizeVerificationResults([{ classification: 'stale' }, { classification: 'unsupported' }]),
+      summarizeVerificationResults([
+        { classification: 'stale' },
+        { classification: 'unsupported' },
+      ]),
     ).toEqual({ supported: 0, contradicted: 0, noIndependentEvidence: 1 });
   });
 });

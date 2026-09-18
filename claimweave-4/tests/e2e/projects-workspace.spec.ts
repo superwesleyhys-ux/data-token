@@ -848,9 +848,7 @@ test('owned processing history compares real persisted runs and links to current
     expect(state.revisions[0]).toMatchObject({
       projectId: historyProject.projectId,
       createdAt: '2026-09-17T12:00:00.000Z',
-      documentSnapshots: [
-        { documentId: historyProject.sourceId, documentKind: 'primary' },
-      ],
+      documentSnapshots: [{ documentId: historyProject.sourceId, documentKind: 'primary' }],
       claimSnapshots: [
         { sourceDocumentId: historyProject.sourceId, current: { text: 'Changed claim now' } },
         { sourceDocumentId: historyProject.sourceId, current: { text: 'Added claim now' } },
@@ -918,7 +916,10 @@ test('owned processing history compares real persisted runs and links to current
       historyProject.sourceId,
       historyProject.sourceId,
     ]);
-    expect(ownerBody.versions.map((version) => version.documentKind)).toEqual(['primary', 'primary']);
+    expect(ownerBody.versions.map((version) => version.documentKind)).toEqual([
+      'primary',
+      'primary',
+    ]);
     expect(ownerBody.revisions.map((revision) => revision.version)).toEqual([1, 2, 3]);
     expect(ownerBody.revisions.map((revision) => revision.eventKind)).toEqual([
       'ingestion',
@@ -1013,8 +1014,12 @@ test('owned processing history compares real persisted runs and links to current
     await expect(page.getByRole('heading', { name: 'Changed claims' })).toBeVisible();
     await expect(page.getByText('Changed claim before', { exact: true }).first()).toBeVisible();
     await expect(page.getByText('Changed claim now', { exact: true }).first()).toBeVisible();
-    await expect(page.getByRole('button', { name: /Revision 1 .*ingestion change set/ })).toBeVisible();
-    await expect(page.getByRole('button', { name: /Revision 2 .*verification change set/ })).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: /Revision 1 .*ingestion change set/ }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: /Revision 2 .*verification change set/ }),
+    ).toBeVisible();
     await expect(
       page.getByRole('button', { name: /Revision 1/ }).getByText('1 document', { exact: true }),
     ).toBeVisible();
@@ -1025,7 +1030,10 @@ test('owned processing history compares real persisted runs and links to current
       page.getByRole('button', { name: /Revision 2/ }).getByText('1 evidence', { exact: true }),
     ).toBeVisible();
     await expect(
-      page.locator('#selected-revision-panel').getByText(historyProject.sourceId, { exact: true }).first(),
+      page
+        .locator('#selected-revision-panel')
+        .getByText(historyProject.sourceId, { exact: true })
+        .first(),
     ).toBeVisible();
     await expect(page.locator('time[dateTime="2026-09-17T12:00:00.000Z"]').first()).toBeVisible();
     await expect(page.locator('time[dateTime="2026-09-18T12:00:00.000Z"]').first()).toBeVisible();
@@ -1051,7 +1059,9 @@ test('owned processing history compares real persisted runs and links to current
     await expect(page.getByText('Current evidence excerpt.')).toBeVisible();
     await expect(page.getByText('unsupported', { exact: true })).toBeVisible();
     await expect(page.getByText('supported', { exact: true })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Evidence excerpt URL: .*evidence-current/ })).toBeVisible();
+    await expect(
+      page.getByRole('link', { name: /Evidence excerpt URL: .*evidence-current/ }),
+    ).toBeVisible();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1),
     ).toBe(true);
@@ -1091,7 +1101,9 @@ test('processing history loading and failure states are actionable', async ({ pa
     });
   });
   await page.goto(`/projects/${historyProject.projectId}/history`);
-  await expect(page.getByRole('heading', { name: 'History is temporarily unavailable.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'History is temporarily unavailable.' }),
+  ).toBeVisible();
   await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Back to claims' })).toHaveAttribute(
     'href',
@@ -1099,7 +1111,9 @@ test('processing history loading and failure states are actionable', async ({ pa
   );
   await page.getByRole('button', { name: 'Try again' }).click();
   await expect.poll(() => failureCount).toBe(2);
-  await expect(page.getByRole('heading', { name: 'History is temporarily unavailable.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'History is temporarily unavailable.' }),
+  ).toBeVisible();
 });
 
 test('failed URL extraction recovers through retry and persists atomic claims', async ({
@@ -1123,19 +1137,16 @@ test('failed URL extraction recovers through retry and persists atomic claims', 
   await expect(page.getByRole('button', { name: 'Retry processing' })).toBeEnabled();
 
   await page.getByRole('button', { name: 'Retry processing' }).click();
-  await expect(
-    page.getByRole('heading', { name: 'Atomic claims, with receipts.' }),
-  ).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole('heading', { name: 'Atomic claims, with receipts.' })).toBeVisible({
+    timeout: 15_000,
+  });
   await expect(page.getByText(sourceQuote, { exact: true }).first()).toBeVisible();
   await expect(
     page.locator('#claims').getByText(`Source span · 0–${sourceQuote.length}`, { exact: true }),
   ).toBeVisible();
   await expect(
     page.locator('#claims').getByRole('link', { name: `Source URL: ${retryUrl}` }),
-  ).toHaveAttribute(
-    'href',
-    retryUrl,
-  );
+  ).toHaveAttribute('href', retryUrl);
   await expect(
     page.locator('#claims').getByRole('link', {
       name: /Citation link: https:\/\/example\.com\/retry-/,
@@ -1213,9 +1224,7 @@ test('pasted text is persisted and rendered with its exact source passage', asyn
   expect(projectId).toBeTruthy();
   const initialClaimText = 'Claimweave preserves every meaningful passage.';
 
-  const beforeReloadResponse = await page.request.get(
-    `/api/projects/${projectId}/claims`,
-  );
+  const beforeReloadResponse = await page.request.get(`/api/projects/${projectId}/claims`);
   expect(beforeReloadResponse.ok()).toBe(true);
   const beforeReload = (await beforeReloadResponse.json()) as {
     documentId: string;
@@ -1269,7 +1278,10 @@ test('pasted text is persisted and rendered with its exact source passage', asyn
   const runs = state.runs;
   expect(runs).toHaveLength(2);
   expect(runs.map((run) => run.version)).toEqual([1, 2]);
-  expect(runs.map((run) => run.documentId)).toEqual([beforeReload.documentId, beforeReload.documentId]);
+  expect(runs.map((run) => run.documentId)).toEqual([
+    beforeReload.documentId,
+    beforeReload.documentId,
+  ]);
   expect(runs.map((run) => run.documentKind)).toEqual(['primary', 'primary']);
   expect(runs[0]?.evidenceState).toBe('complete');
   expect(runs[0]?.createdAt).toEqual(expect.any(String));

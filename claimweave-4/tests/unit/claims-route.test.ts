@@ -368,16 +368,16 @@ describe('GET /api/projects/[projectId]/claims', () => {
     );
     await expect(response.json()).resolves.toMatchObject({
       pagination: { total: 1 },
-      claims: [{ id: 'claim-approved', approvalStatus: 'approved', verificationStatus: 'contradicted' }],
+      claims: [
+        { id: 'claim-approved', approvalStatus: 'approved', verificationStatus: 'contradicted' },
+      ],
     });
   });
 
   it('returns a truthful empty result for an inverse or contradiction filter with no matches', async () => {
     const claims = [project.source.claims[0]];
     mockOwnedProject({ ...project, source: { ...project.source, claims } });
-    claimFindMany
-      .mockResolvedValueOnce([{ id: 'claim-1' }])
-      .mockResolvedValueOnce([]);
+    claimFindMany.mockResolvedValueOnce([{ id: 'claim-1' }]).mockResolvedValueOnce([]);
     claimCount.mockResolvedValue(0);
     getLatestVerification.mockResolvedValue({ verification: null });
 
@@ -729,7 +729,9 @@ describe('GET /api/projects/[projectId]/claims', () => {
         ...project.source,
         normalizedContent: null,
         documentText: 'The legacy source still has different content.',
-        claims: [{ ...project.source.claims[0], sourceQuote: staleQuote, sourceEnd: staleQuote.length }],
+        claims: [
+          { ...project.source.claims[0], sourceQuote: staleQuote, sourceEnd: staleQuote.length },
+        ],
       },
     });
 

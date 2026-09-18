@@ -103,8 +103,9 @@ describe('project processing contracts', () => {
       sourceUrl: 'https://example.com/article',
       createdAt: '2026-09-17T12:00:00.000Z',
     };
-    expect(ProjectWorkspaceStatus.safeParse({ ...base, status: 'processing', error: null }).success)
-      .toBe(true);
+    expect(
+      ProjectWorkspaceStatus.safeParse({ ...base, status: 'processing', error: null }).success,
+    ).toBe(true);
     expect(
       ProjectWorkspaceStatus.safeParse({
         ...base,

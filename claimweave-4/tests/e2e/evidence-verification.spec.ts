@@ -271,8 +271,12 @@ test('the authenticated project route runs and renders independent verification'
   await expect(outcomeSummary).toContainText('Contradicted');
   await expect(outcomeSummary).toContainText('No independent evidence');
   await expect(outcomeSummary).toContainText('Latest verification: Completed');
-  await expect(outcomeSummary.locator('p').filter({ hasText: 'Supported' }).locator('..')).toContainText('2');
-  await expect(outcomeSummary.locator('p').filter({ hasText: 'Contradicted' }).locator('..')).toContainText('1');
+  await expect(
+    outcomeSummary.locator('p').filter({ hasText: 'Supported' }).locator('..'),
+  ).toContainText('2');
+  await expect(
+    outcomeSummary.locator('p').filter({ hasText: 'Contradicted' }).locator('..'),
+  ).toContainText('1');
   await expect(
     outcomeSummary.locator('p').filter({ hasText: 'No independent evidence' }).locator('..'),
   ).toContainText('1');
@@ -322,7 +326,10 @@ test('the authenticated project route runs and renders independent verification'
     await page.getByRole('option', { name: option, exact: true }).click();
     const response = await responsePromise;
     expect(response.status()).toBe(200);
-    return (await response.json()) as { pagination: { total: number }; claims: Array<{ id: string }> };
+    return (await response.json()) as {
+      pagination: { total: number };
+      claims: Array<{ id: string }>;
+    };
   };
   const expectOnlyVisibleClaims = async (claimIds: readonly (string | undefined)[]) => {
     const visibleClaimIds = new Set(claimIds);
@@ -350,7 +357,9 @@ test('the authenticated project route runs and renders independent verification'
   await expect(page.locator(`#review-claim-${project.claimIds[0]}`)).toBeVisible();
   await expect(page.locator(`#review-claim-${project.claimIds[1]}`)).toHaveCount(0);
   await expect(
-    page.locator(`#review-claim-${project.claimIds[0]}`).getByText('Source passage', { exact: true }),
+    page
+      .locator(`#review-claim-${project.claimIds[0]}`)
+      .getByText('Source passage', { exact: true }),
   ).toBeVisible();
 
   const emptyClaims = await chooseFilter(
@@ -359,7 +368,9 @@ test('the authenticated project route runs and renders independent verification'
     'approvalStatus=pending&verificationStatus=supported&contradictionStatus=found',
   );
   expect(emptyClaims.pagination.total).toBe(0);
-  await expect(page.getByText('No claims match these filters.', { exact: true }).first()).toBeVisible();
+  await expect(
+    page.getByText('No claims match these filters.', { exact: true }).first(),
+  ).toBeVisible();
   await page.getByRole('button', { name: 'Clear filters', exact: true }).first().click();
   await expect(page.getByText('No claims match these filters.', { exact: true })).toHaveCount(0);
   await expect(page.locator(`#review-claim-${project.claimIds[2]}`)).toBeVisible();
@@ -463,14 +474,22 @@ test('the authenticated project route runs and renders independent verification'
   await expect(page.getByText('Claim rejected.')).toBeVisible();
   await expect(contradictedReview.getByText('rejected', { exact: true })).toBeVisible();
 
-  const approvedClaims = await chooseFilter('Approval state filter', 'Approved', 'approvalStatus=approved');
+  const approvedClaims = await chooseFilter(
+    'Approval state filter',
+    'Approved',
+    'approvalStatus=approved',
+  );
   expect(approvedClaims.pagination.total).toBe(2);
   expect(approvedClaims.claims.map(({ id }) => id).sort()).toEqual(
     [project.claimIds[0], project.claimIds[3]].sort(),
   );
   await expectOnlyVisibleClaims([project.claimIds[0], project.claimIds[3]]);
 
-  const rejectedClaims = await chooseFilter('Approval state filter', 'Rejected', 'approvalStatus=rejected');
+  const rejectedClaims = await chooseFilter(
+    'Approval state filter',
+    'Rejected',
+    'approvalStatus=rejected',
+  );
   expect(rejectedClaims.pagination.total).toBe(3);
   expect(rejectedClaims.claims.map(({ id }) => id).sort()).toEqual(
     [project.claimIds[1], project.claimIds[2], project.claimIds[4]].sort(),
@@ -481,7 +500,9 @@ test('the authenticated project route runs and renders independent verification'
   await expect(page.getByText('Active threshold: 1 independent source')).toBeVisible();
   await page.getByLabel('Minimum independent sources').fill('2');
   await page.getByRole('button', { name: 'Save threshold', exact: true }).click();
-  await expect(page.getByText('Verification threshold saved. The next verification will use it.')).toBeVisible();
+  await expect(
+    page.getByText('Verification threshold saved. The next verification will use it.'),
+  ).toBeVisible();
   await expect(page.getByLabel('Minimum independent sources')).toHaveValue('2');
   const savedPolicy = await page.request.get(`/api/projects/${project.projectId}/verify`);
   expect(savedPolicy.status()).toBe(200);
@@ -508,12 +529,12 @@ test('the authenticated project route runs and renders independent verification'
   expect(stored.run?.results).toHaveLength(5);
   expect(stored.run?.results.some((result) => result.excerpts.length > 0)).toBe(true);
   expect(stored.project?.minimumSupportingSources).toBe(2);
-  expect(stored.run?.results.find((result) => result.claimId === project.claimIds[0])?.classification).toBe(
-    'supported',
-  );
-  expect(stored.run?.results.find((result) => result.claimId === project.claimIds[3])?.classification).toBe(
-    'unsupported',
-  );
+  expect(
+    stored.run?.results.find((result) => result.claimId === project.claimIds[0])?.classification,
+  ).toBe('supported');
+  expect(
+    stored.run?.results.find((result) => result.claimId === project.claimIds[3])?.classification,
+  ).toBe('unsupported');
   expect(stored.revisions).toHaveLength(2);
   expect(stored.revisions[1]?.eventKind).toBe('verification');
   expect(stored.revisions[1]?.evidenceSnapshots.length).toBeGreaterThan(0);
@@ -564,7 +585,13 @@ test('the authenticated project route runs and renders independent verification'
   const unsupportedClaimId = project.claimIds[1];
   const currentClaimId = project.claimIds[3];
   const staleClaimId = project.claimIds[4];
-  if (!supportedClaimId || !contradictedClaimId || !unsupportedClaimId || !currentClaimId || !staleClaimId) {
+  if (
+    !supportedClaimId ||
+    !contradictedClaimId ||
+    !unsupportedClaimId ||
+    !currentClaimId ||
+    !staleClaimId
+  ) {
     throw new Error('The review fixture did not create the expected claims.');
   }
   expect(storedClaimsById.get(supportedClaimId)).toMatchObject({

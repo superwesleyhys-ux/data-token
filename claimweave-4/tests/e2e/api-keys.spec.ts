@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
-import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { expect, type Page, test } from '@playwright/test';
 
 const password = 'Claimweave-e2e-password-123!';
@@ -324,7 +324,11 @@ test('authenticated users can create, mask, and revoke API keys', async ({ page 
   await expect(page.getByText('This is the only time we will show the full secret')).toBeVisible();
 
   const stored = await readStoredKey(email, applicationName);
-  expect(stored?.keyHash).toBe(createHash('sha256').update(secret ?? '', 'utf8').digest('hex'));
+  expect(stored?.keyHash).toBe(
+    createHash('sha256')
+      .update(secret ?? '', 'utf8')
+      .digest('hex'),
+  );
   expect(stored?.keyPrefix).toBe(secret?.slice(0, 16));
   expect(stored).not.toHaveProperty('secret');
 
