@@ -1,0 +1,85 @@
+// @polsia:user-owned — project-scoped independent evidence and verification records.
+
+model ClaimweaveEvidenceDocument {
+  id              String                         @id @default(cuid())
+  projectId       String
+  userId          String
+  title           String
+  sourceUrl       String?
+  submittedAt     DateTime                       @default(now())
+  publicationDate DateTime?
+  normalizedContent String
+  contentHash     String
+  status          String                         @default("submitted")
+  createdAt       DateTime                       @default(now())
+  updatedAt       DateTime                       @updatedAt
+  passages        ClaimweaveEvidencePassage[]
+
+  @@index([projectId, userId, submittedAt])
+  @@index([projectId, contentHash])
+}
+
+model ClaimweaveEvidencePassage {
+  id            String                         @id @default(cuid())
+  documentId    String
+  text          String
+  startOffset   Int?
+  endOffset     Int?
+  sourceUrl     String?
+  evidenceDate  DateTime?
+  createdAt     DateTime                       @default(now())
+  document      ClaimweaveEvidenceDocument     @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  excerpts      ClaimweaveVerificationExcerpt[]
+
+  @@index([documentId, createdAt])
+}
+
+model ClaimweaveVerificationRun {
+  id                 String                          @id @default(cuid())
+  projectId          String
+  userId             String
+  startedAt          DateTime                        @default(now())
+  completedAt        DateTime?
+  mode               String
+  policyVersion      String
+  status             String
+  accuracyTotal      Int?
+  accuracyCorrect    Int?
+  accuracyPercentage Float?
+  results            ClaimweaveVerificationResult[]
+
+  @@index([projectId, userId, startedAt])
+  @@index([projectId, status])
+}
+
+model ClaimweaveVerificationResult {
+  id             String                         @id @default(cuid())
+  runId          String
+  claimId        String
+  classification String
+  freshness      String
+  verifiedAt     DateTime                       @default(now())
+  errorState     String?
+  run            ClaimweaveVerificationRun      @relation(fields: [runId], references: [id], onDelete: Cascade)
+  excerpts       ClaimweaveVerificationExcerpt[]
+
+  @@unique([runId, claimId])
+  @@index([claimId, verifiedAt])
+}
+
+model ClaimweaveVerificationExcerpt {
+  id             String                         @id @default(cuid())
+  resultId       String
+  passageId      String
+  documentId     String
+  documentTitle  String
+  role           String
+  text           String
+  sourceUrl      String?
+  evidenceDate   DateTime?
+  result         ClaimweaveVerificationResult   @relation(fields: [resultId], references: [id], onDelete: Cascade)
+  passage        ClaimweaveEvidencePassage      @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@index([resultId, role])
+  @@index([passageId])
+}

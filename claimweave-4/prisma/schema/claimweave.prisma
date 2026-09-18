@@ -1,0 +1,94 @@
+// @polsia:user-owned — Claimweave project and persisted extraction records.
+
+model ClaimweaveProject {
+  id                         String           @id @default(cuid())
+  createdAt                  DateTime         @default(now())
+  userId                     String?
+  minimumSupportingSources   Int              @default(1)
+  source    ClaimweaveSource?
+  processingRuns ClaimweaveProcessingRun[]
+
+  @@index([userId])
+}
+
+model ClaimweaveProcessingRun {
+  id            String                    @id @default(cuid())
+  projectId     String
+  version       Int
+  evidenceState String
+  processingRoute String @default("legacy-unknown")
+  documentId    String?
+  documentKind  String?
+  createdAt     DateTime                  @default(now())
+  project       ClaimweaveProject         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  snapshots     ClaimweaveClaimSnapshot[]
+
+  @@unique([projectId, version])
+  @@index([projectId, createdAt])
+  @@index([projectId, documentId, createdAt])
+}
+
+model ClaimweaveClaimSnapshot {
+  id             String                  @id @default(cuid())
+  runId          String
+  text           String
+  sourceStart    Int
+  sourceEnd      Int
+  sourceQuote    String
+  sourceUrl      String?
+  citationLinks  Json
+  createdAt      DateTime                @default(now())
+  run            ClaimweaveProcessingRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+
+  @@index([runId, sourceStart])
+}
+
+model ClaimweaveSource {
+  id           String            @id @default(cuid())
+  projectId    String            @unique
+  url          String?
+  documentText String?
+  normalizedContent String?
+  extractedAt  DateTime
+  status       String
+  processingError String?
+  processingClaim String?
+  processingStartedAt DateTime?
+  processingRoute String @default("legacy-unknown")
+  processingTrace Json?
+  project      ClaimweaveProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  claims       ClaimweaveClaim[]
+
+  @@index([projectId])
+}
+
+model ClaimweaveClaim {
+  id            String           @id @default(cuid())
+  sourceId      String
+  text          String
+  sourceStart   Int
+  sourceEnd     Int
+  sourceQuote  String
+  citationLinks Json
+  sourceUrl     String?
+  extractedAt   DateTime
+  approvalStatus String @default("pending")
+  reviewedAt    DateTime?
+  reviewerId    String?
+  source        ClaimweaveSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@index([sourceId, sourceStart])
+}
+
+model ClaimweaveJourneyEvent {
+  id         String   @id @default(cuid())
+  visitorId  String
+  event      String
+  entryPoint String?
+  projectId  String?
+  createdAt  DateTime @default(now())
+
+  @@unique([visitorId, event])
+  @@index([event, createdAt])
+  @@index([visitorId])
+}
